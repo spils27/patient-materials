@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Your Case</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2733;
+    --ink-soft: #4a5a6b;
+    --ink-light: #7a8a9b;
+    --paper: #fdfcf9;
+    --cream: #f6f1e8;
+    --teal: #2a5f6f;
+    --teal-soft: #e6eff1;
+    --amber: #b8691f;
+    --amber-soft: #fdf3e6;
+    --sage: #4a7c59;
+    --sage-soft: #edf3ee;
+    --rule: #e5ddd0;
+    --rule-strong: #c9bfae;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e8e4db;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body { padding: 2rem 1rem; }
+
+  .page {
+    background: var(--paper);
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 2rem;
+    padding: 0.55in 0.6in;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .doc-header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+
+  .doc-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .doc-subtitle {
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 0.4rem;
+  }
+
+  .doc-meta {
+    font-size: 10px;
+    color: var(--ink-light);
+    text-align: right;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  .intro {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 6.5in;
+    margin-bottom: 1rem;
+  }
+
+  /* Intro emphasis box */
+  .intro-box {
+    background: linear-gradient(to right, var(--teal), #1e4b58);
+    color: white;
+    border-radius: 7px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .intro-box h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: white;
+  }
+
+  .intro-box p {
+    color: rgba(255,255,255,0.92);
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  .intro-box strong { color: white; }
+
+  .section-heading {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.55rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--rule);
+    letter-spacing: -0.005em;
+    margin-top: 0.9rem;
+  }
+
+  .section-heading:first-of-type { margin-top: 0; }
+
+  p, li { font-size: 12px; color: var(--ink); line-height: 1.55; }
+  p { margin-bottom: 0.45rem; }
+
+  /* Factor cards */
+  .factors-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .factor-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--teal);
+    border-radius: 5px;
+    padding: 0.65rem 0.8rem;
+  }
+
+  .factor-card h3 {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.005em;
+  }
+
+  .factor-card p {
+    font-size: 11px;
+    color: var(--ink);
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  .factor-card .impact {
+    font-size: 10px;
+    color: var(--ink-light);
+    font-style: italic;
+    margin-top: 0.3rem;
+    padding-top: 0.3rem;
+    border-top: 1px dashed var(--rule);
+    display: block;
+  }
+
+  /* Callouts */
+  .callout {
+    padding: 0.65rem 0.8rem;
+    border-radius: 5px;
+    font-size: 11px;
+    line-height: 1.55;
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+  }
+
+  .callout.info { background: var(--teal-soft); border-left: 3px solid var(--teal); color: #1a3a42; }
+  .callout.tip { background: var(--sage-soft); border-left: 3px solid var(--sage); color: #2a4a33; }
+
+  .callout-icon { flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+
+  /* What-this-means section */
+  .means-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+    margin-top: 0.4rem;
+  }
+
+  .means-card {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .means-card h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    margin-bottom: 0.4rem;
+  }
+
+  ul.clean { list-style: none; padding: 0; }
+
+  ul.clean li {
+    padding: 0.17rem 0 0.17rem 1.05rem;
+    position: relative;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  ul.clean li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.56rem;
+    width: 4px;
+    height: 4px;
+    background: var(--teal);
+    border-radius: 50%;
+  }
+
+  /* Bottom reassurance */
+  .reassurance {
+    background: var(--sage-soft);
+    border-left: 3px solid var(--sage);
+    border-radius: 5px;
+    padding: 0.75rem 0.9rem;
+    margin-top: 0.7rem;
+    font-size: 11.5px;
+    color: #2a4a33;
+    line-height: 1.55;
+  }
+
+  .reassurance strong { color: #1e3524; }
+
+  .doc-footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 0.55rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9.5px;
+    color: var(--ink-light);
+    letter-spacing: 0.02em;
+  }
+
+  .page-num { font-weight: 600; color: var(--teal); }
+
+  strong { color: var(--ink); }
+
+  @media print {
+    @page { size: letter; margin: 0; }
+    body { background: white; padding: 0; }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      padding: 0.5in 0.6in;
+      min-height: 11in;
+    }
+  }
+</style>
+</head>
+<body>
+
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title">About your case</h1>
+      <div class="doc-subtitle">Factors that may make your surgery and recovery more involved</div>
+    </div>
+    <div class="doc-meta">
+      Please read before<br>
+      your procedure
+    </div>
+  </header>
+
+  <p class="intro">
+    Not every extraction or oral surgery is the same. Some cases have factors that make the procedure more complex, longer, or the recovery tougher than average. We're giving you this page because <strong>your case has one or more of these factors</strong>, and we want you to understand what to expect — so the day of surgery and the days after don't come with surprises.
+  </p>
+
+  <div class="intro-box">
+    <h3>The honest version</h3>
+    <p>An "easy" wisdom tooth on a 19-year-old and a "complicated" wisdom tooth on a 52-year-old are two completely different procedures — same name, different realities. <strong>Knowing ahead of time which one you're having helps you plan: for time off, for help at home, for what the first few days will feel like.</strong></p>
+  </div>
+
+  <h2 class="section-heading">Factors that can make surgery more complex</h2>
+
+  <div class="factors-grid">
+
+    <div class="factor-card">
+      <h3>Patient age</h3>
+      <p>Bone becomes denser and less elastic as we age. A wisdom tooth at 20 lifts out relatively easily; the same tooth at 50 often requires more bone removal and tooth sectioning.</p>
+      <span class="impact">More surgical time. More swelling. Longer recovery.</span>
+    </div>
+
+    <div class="factor-card">
+      <h3>Limited mouth opening</h3>
+      <p>If you can't open your mouth very wide (whether from TMJ issues, anatomy, or previous surgery), back teeth and wisdom teeth are harder to access. Working through a smaller opening takes more time and care.</p>
+      <span class="impact">Longer procedure. May require extra jaw rest afterward.</span>
+    </div>
+
+    <div class="factor-card">
+      <h3>Dense bone</h3>
+      <p>Very dense or thick jaw bone — common in the lower jaw and in some patients — requires more controlled bone removal to release the tooth without damaging surrounding structures.</p>
+      <span class="impact">More drilling. More post-op soreness and swelling.</span>
+    </div>
+
+    <div class="factor-card">
+      <h3>Tooth root shape</h3>
+      <p>Roots that are long, curved, hooked, flared, or fused to the surrounding bone don't come out in one piece. The tooth may need to be sectioned and removed in parts.</p>
+      <span class="impact">Longer procedure. More complex healing.</span>
+    </div>
+
+    <div class="factor-card">
+      <h3>Position &amp; angle</h3>
+      <p>Teeth that are lying on their side, tipped into neighboring teeth, or buried under bone are much harder to remove than teeth that have erupted normally. Wisdom teeth especially come in every possible angle.</p>
+      <span class="impact">More extensive surgery. Longer pain curve.</span>
+    </div>
+
+    <div class="factor-card">
+      <h3>Proximity to nerves</h3>
+      <p>Lower wisdom teeth and back molars can sit right next to nerves that give feeling to your lip, chin, and tongue. Extra care (and sometimes special imaging or techniques) is needed to avoid nerve injury.</p>
+      <span class="impact">More careful, slower technique. Small risk of temporary numbness.</span>
+    </div>
+
+    <div class="factor-card">
+      <h3>Existing infection</h3>
+      <p>A tooth that's already infected is surrounded by inflamed tissue. Local anesthesia may work less well, and the risk of post-op infection is higher. We often prescribe antibiotics before and after.</p>
+      <span class="impact">Possibly more discomfort. Higher infection risk.</span>
+    </div>
+
+    <div class="factor-card">
+      <h3>Medications &amp; health history</h3>
+      <p>Blood thinners, bisphosphonates, immunosuppressants, and uncontrolled diabetes all affect healing. None of these stop us from doing surgery — they just change how we plan it.</p>
+      <span class="impact">Slower healing. Extra precautions.</span>
+    </div>
+
+    <div class="factor-card">
+      <h3>Smoking or nicotine use</h3>
+      <p>Nicotine in any form — cigarettes, vapes, pouches — constricts blood vessels and slows healing. Smokers get dry socket roughly three times more often. For implants, failure rates are 2–3× higher.</p>
+      <span class="impact">Dramatically affects outcome. The one factor you can control.</span>
+    </div>
+
+    <div class="factor-card">
+      <h3>Large or multiple sites</h3>
+      <p>Removing four wisdom teeth is not four times the pain of one — but it's meaningfully more than one. Multiple extractions, full-arch alveoplasty, or combined procedures (extraction + graft + implant) compound the recovery.</p>
+      <span class="impact">Broader swelling area. More overall soreness.</span>
+    </div>
+
+  </div>
+
+  <h2 class="section-heading">Complications that can occur — even with careful technique</h2>
+
+  <p>Oral surgery is done in a non-sterile environment (the mouth), on tissues that move and heal unpredictably, around anatomy that varies from person to person. Even with good planning and surgical technique, a small percentage of cases develop one of the complications below. Most are manageable — what matters is recognizing them early.</p>
+
+  <div class="factors-grid" style="margin-top: 0.5rem;">
+
+    <div class="factor-card" style="border-left-color: var(--amber);">
+      <h3 style="color: var(--amber);">Dry socket (alveolar osteitis)</h3>
+      <p>After an extraction, a blood clot forms in the socket — it's your body's natural bandage, covering exposed bone and nerve endings. If that clot breaks down early or falls out, those nerve endings are directly exposed to air, food, and saliva. The pain is severe, throbbing, often radiates to the ear or temple, and typically appears <strong>3–5 days after extraction</strong> — after you'd started to feel better.</p>
+      <p style="margin-top: 0.35rem; margin-bottom: 0;"><strong>Incidence: 2–5% of routine extractions, up to 30% of lower wisdom teeth.</strong> Key risk factors: smoking or vaping (roughly triples the risk), traumatic extractions, poor oral hygiene, and — less modifiably — being female on oral contraceptives. Treatment is straightforward: a medicated dressing placed in the socket gives rapid relief, usually within minutes, and the socket heals normally over 7–10 days. <em>Dry socket is not an infection and does not require antibiotics.</em></p>
+      <span class="impact">Mostly preventable — the biggest controllable factor is avoiding smoking for at least 72 hours post-op.</span>
+    </div>
+
+    <div class="factor-card" style="border-left-color: var(--amber);">
+      <h3 style="color: var(--amber);">Post-operative infection</h3>
+      <p>The mouth isn't sterile. Even with sterile instruments and careful technique, bacteria can colonize a healing surgical site. The classic pattern: <strong>pain and swelling that were improving suddenly return, often with a bad taste, sometimes with pus or a fever.</strong> Can appear anywhere from a few days to two weeks after surgery, most commonly around days 5–10.</p>
+      <p style="margin-top: 0.35rem; margin-bottom: 0;"><strong>Incidence: roughly 3–6%</strong>, higher in teeth that were already infected before surgery or in patients with uncontrolled diabetes or immune issues. Treatment is usually an antibiotic, sometimes with drainage and irrigation in the office. Caught early, these resolve quickly. Delayed, they can spread — which is why returning pain after improvement is always worth a phone call.</p>
+      <span class="impact">Higher risk with pre-existing infection, diabetes, immunocompromise, or smoking.</span>
+    </div>
+
+    <div class="factor-card" style="border-left-color: var(--amber);">
+      <h3 style="color: var(--amber);">Nerve injury (paresthesia)</h3>
+      <p>The nerves that give feeling to your lower lip, chin, and tongue run close to the roots of lower back teeth — especially wisdom teeth and posterior molars — and close to the nerve canal where lower implants are placed. During surgery, these nerves can be bruised, stretched, or (rarely) cut. The result is numbness, tingling, or altered sensation in those areas.</p>
+      <p style="margin-top: 0.35rem; margin-bottom: 0;"><strong>Temporary paresthesia: up to 5–8% after lower wisdom teeth. Permanent: under 1%.</strong> Most cases are bruising-type injuries that resolve over weeks to months as the nerve recovers. Before surgery on teeth close to the nerve, we often use a CBCT scan to map the exact distance and plan the technique accordingly. In very high-risk cases, a procedure called coronectomy (removing the crown and leaving the roots) can be considered.</p>
+      <span class="impact">Most related to anatomical proximity of roots or implant to the nerve canal — largely predictable from imaging.</span>
+    </div>
+
+    <div class="factor-card" style="border-left-color: var(--amber);">
+      <h3 style="color: var(--amber);">Acquired bone defect (ridge resorption)</h3>
+      <p>Once a tooth is removed, the bone that used to support its root is no longer needed — and your body starts resorbing it. This is a normal biological process, not a complication in itself. <strong>The problem is that bone loss is rapid and substantial: studies show roughly 40–50% of the ridge width and 1–1.5 mm of height are lost in the first 3–6 months</strong>, with additional slow loss for years afterward.</p>
+      <p style="margin-top: 0.35rem;">For a single tooth you're replacing with nothing, this rarely matters. But for future restorations, it can change everything: an implant may no longer have enough bone width, a bridge may need to be designed around a sunken ridge, and a denture may not sit stably on a flattened area. Defects are usually classified as <em>horizontal</em> (narrow ridge), <em>vertical</em> (short ridge), or <em>combined</em>.</p>
+      <p style="margin-top: 0.35rem; margin-bottom: 0;"><strong>The easiest time to prevent this loss is at the time of the extraction.</strong> A small bone graft placed in the socket ("socket preservation") substantially reduces the loss — typically preserving enough bone for a future implant without further surgery. Correcting a defect after the fact (ridge augmentation, guided bone regeneration, block grafts, sinus lifts) is always possible, but it's a bigger surgery with longer healing and higher cost.</p>
+      <span class="impact">Prevention with a socket preservation graft is dramatically easier than correction later. Worth discussing before your extraction if future restoration is likely.</span>
+    </div>
+
+    <div class="factor-card" style="border-left-color: var(--amber);">
+      <h3 style="color: var(--amber);">Sinus communication</h3>
+      <p>For upper back teeth and wisdom teeth, the root tips can be close to or within the maxillary sinus. Removing the tooth can leave a small opening between the mouth and sinus. Usually heals on its own with sinus precautions; occasionally requires surgical repair.</p>
+      <span class="impact">More common with upper molars, especially when roots wrap around the sinus floor.</span>
+    </div>
+
+    <div class="factor-card" style="border-left-color: var(--amber);">
+      <h3 style="color: var(--amber);">Root tip or bone fragment retained</h3>
+      <p>Occasionally a small root tip or bone fragment can't be safely removed without risking damage to adjacent structures (like a nerve). Often the safer choice is to leave it and monitor. Most remain uneventful for life; some work their way out later (a "bone spicule").</p>
+      <span class="impact">A clinical judgment call — safety over completeness.</span>
+    </div>
+
+    <div class="factor-card" style="border-left-color: var(--amber);">
+      <h3 style="color: var(--amber);">Jaw stiffness (trismus)</h3>
+      <p>Difficulty opening the mouth fully after surgery, especially for lower wisdom teeth. Caused by swelling and muscle inflammation. Almost always resolves within 1–2 weeks with gentle stretching.</p>
+      <span class="impact">Nearly universal after lower wisdom teeth — not usually considered a true complication.</span>
+    </div>
+
+    <div class="factor-card" style="border-left-color: var(--amber);">
+      <h3 style="color: var(--amber);">Damage to adjacent teeth or restorations</h3>
+      <p>Teeth next to a surgical site can occasionally be loosened, chipped, or have existing crowns or fillings dislodged during the procedure. We work carefully to avoid this, but it can happen especially when teeth are deeply decayed, heavily restored, or tightly positioned.</p>
+      <span class="impact">More likely when adjacent teeth are compromised to start with.</span>
+    </div>
+
+    <div class="factor-card" style="border-left-color: var(--amber);">
+      <h3 style="color: var(--amber);">Implant failure or graft failure</h3>
+      <p>Even with ideal technique, about 2–5% of implants and a small percentage of bone grafts don't integrate properly. Smoking, uncontrolled diabetes, and failure to follow post-op instructions are the biggest controllable factors. Usually correctable with a second attempt.</p>
+      <span class="impact">Highest-risk factors are within your control.</span>
+    </div>
+
+    <div class="factor-card" style="border-left-color: var(--amber);">
+      <h3 style="color: var(--amber);">Prolonged bleeding or bruising</h3>
+      <p>Some patients bleed or bruise more than expected, especially if on blood thinners, aspirin, fish oil, or certain supplements. Usually manageable with pressure, ice, and time. Extensive bruising down the neck or chest looks alarming but is harmless and resolves over 1–2 weeks.</p>
+      <span class="impact">Often predictable from medication history.</span>
+    </div>
+
+  </div>
+
+  <div class="callout info" style="margin-top: 0.55rem;">
+    <div class="callout-icon">ℹ</div>
+    <div><strong>The honest perspective.</strong> Complications are rare but not zero. Every surgeon in every specialty has patients who experience them. The goal isn't to avoid every complication (impossible) but to <em>catch them early, manage them well, and not surprise you with them</em>. If you notice anything unusual, call — we'd rather hear from you than have you wait.</div>
+  </div>
+
+  <h2 class="section-heading">What this means for you</h2>
+
+  <div class="means-grid">
+
+    <div class="means-card">
+      <h3>Plan for more recovery time</h3>
+      <ul class="clean">
+        <li>Take an extra day or two off work or school</li>
+        <li>Arrange for help with kids, pets, or driving</li>
+        <li>Stock up on soft foods before surgery</li>
+        <li>Don't plan travel, big events, or deadlines within the first week</li>
+      </ul>
+    </div>
+
+    <div class="means-card">
+      <h3>Expect a more involved recovery</h3>
+      <ul class="clean">
+        <li>More swelling, peaking at day 2–3</li>
+        <li>More jaw stiffness than average</li>
+        <li>Possibly a longer pain curve (7–10 days vs 3–5)</li>
+        <li>A higher chance of complications like dry socket</li>
+        <li>More follow-up visits may be needed</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon">ℹ</div>
+    <div><strong>This isn't bad news — it's information.</strong> Knowing your case is more involved lets you prepare properly. Patients who expect a full week of recovery and get five days feel like they got lucky. Patients who expect three days and get seven feel like something went wrong. Nothing went wrong — they just had a more complex case.</div>
+  </div>
+
+  <div class="reassurance">
+    <strong>What we commit to:</strong> Clear communication before the procedure about what makes your case complex, careful surgical technique appropriate to the difficulty, realistic expectations for your recovery timeline, and close follow-up. If you have questions about any factor above that applies to your case, bring them up before your surgery day — we'd rather answer them now than have you worry about them later.
+  </div>
+
+  <footer class="doc-footer">
+    <div>About Your Case · Pairs with your procedure-specific handout</div>
+    <div class="page-num">Call our office with questions before surgery</div>
+  </footer>
+</article>
+
+</body>
+</html>

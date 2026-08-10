@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>After Your Wisdom Teeth Removal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2733;
+    --ink-soft: #4a5a6b;
+    --ink-light: #7a8a9b;
+    --paper: #fdfcf9;
+    --cream: #f6f1e8;
+    --teal: #2a5f6f;
+    --teal-soft: #e6eff1;
+    --amber: #b8691f;
+    --amber-soft: #fdf3e6;
+    --sage: #4a7c59;
+    --sage-soft: #edf3ee;
+    --rule: #e5ddd0;
+    --rule-strong: #c9bfae;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e8e4db;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body { padding: 2rem 1rem; }
+
+  .page {
+    background: var(--paper);
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 2rem;
+    padding: 0.6in 0.65in;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+  .doc-header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+
+  .doc-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .doc-subtitle {
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 0.4rem;
+  }
+
+  .doc-meta {
+    font-size: 10px;
+    color: var(--ink-light);
+    text-align: right;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  .intro {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 6.5in;
+    margin-bottom: 1.1rem;
+  }
+
+  /* Timeline */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 1.2rem;
+    background: var(--cream);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .timeline-step {
+    padding: 0.7rem 0.6rem;
+    border-right: 1px solid var(--rule-strong);
+  }
+
+  .timeline-step:last-child { border-right: none; }
+
+  .timeline-when {
+    font-size: 9.5px;
+    font-weight: 600;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 3px;
+  }
+
+  .timeline-what {
+    font-size: 11px;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+
+  /* Sections */
+  section { margin-bottom: 1rem; }
+
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    letter-spacing: -0.005em;
+  }
+
+  h2 .num {
+    font-family: 'Inter', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: var(--teal);
+    color: white;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  h3.sub {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.7rem;
+    margin-bottom: 0.35rem;
+  }
+
+  h3.sub:first-child { margin-top: 0; }
+
+  p, li {
+    font-size: 12px;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  p { margin-bottom: 0.45rem; }
+
+  .section-lead {
+    color: var(--ink-soft);
+    margin-bottom: 0.55rem;
+  }
+
+  /* Callout */
+  .callout {
+    padding: 0.65rem 0.8rem;
+    border-radius: 5px;
+    font-size: 11px;
+    line-height: 1.55;
+    margin-top: 0.55rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .callout.warn { background: var(--amber-soft); border-left: 3px solid var(--amber); color: #5a3410; }
+  .callout.info { background: var(--teal-soft); border-left: 3px solid var(--teal); color: #1a3a42; }
+  .callout.tip { background: var(--sage-soft); border-left: 3px solid var(--sage); color: #2a4a33; }
+
+  .callout-icon { flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+
+  /* Two-col */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-top: 0.4rem;
+  }
+
+  .col-card {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .col-card h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    margin-bottom: 0.45rem;
+  }
+
+  /* Lists */
+  ul.clean { list-style: none; padding: 0; }
+
+  ul.clean li {
+    padding: 0.2rem 0 0.2rem 1.1rem;
+    position: relative;
+    font-size: 11.5px;
+  }
+
+  ul.clean li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.58rem;
+    width: 4px;
+    height: 4px;
+    background: var(--teal);
+    border-radius: 50%;
+  }
+
+  ul.cross li:before {
+    content: "✕";
+    background: none;
+    color: var(--amber);
+    font-weight: 600;
+    top: 0.2rem; width: auto; height: auto; font-size: 11px;
+  }
+
+  ul.check li:before {
+    content: "✓";
+    background: none;
+    color: var(--sage);
+    font-weight: 700;
+    top: 0.2rem; width: auto; height: auto; font-size: 11px;
+  }
+
+  /* Pain curve visual */
+  .pain-curve {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 0.8rem 0.9rem 0.7rem;
+    margin-top: 0.35rem;
+  }
+
+  .pain-curve-title {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    margin-bottom: 0.6rem;
+  }
+
+  .curve-bars {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 4px;
+    align-items: end;
+    height: 60px;
+    margin-bottom: 0.35rem;
+    padding: 0 2px;
+  }
+
+  .curve-bar {
+    background: var(--teal);
+    border-radius: 3px 3px 0 0;
+    opacity: 0.85;
+  }
+
+  .curve-labels {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 4px;
+    font-size: 9px;
+    color: var(--ink-light);
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  /* Compare */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 0.4rem;
+  }
+
+  .compare-col { padding: 0.65rem 0.8rem; }
+
+  .compare-col:first-child {
+    border-right: 1px solid var(--rule);
+    background: var(--sage-soft);
+  }
+
+  .compare-col:last-child { background: var(--amber-soft); }
+
+  .compare h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+
+  .compare-col:first-child h3 { color: var(--sage); }
+  .compare-col:last-child h3 { color: var(--amber); }
+
+  .compare ul.clean li { font-size: 11px; padding: 0.15rem 0 0.15rem 0.9rem; }
+
+  /* Call us */
+  .call-box {
+    border: 1.5px solid var(--teal);
+    border-radius: 7px;
+    padding: 0.85rem 1rem;
+    background: var(--paper);
+    margin-top: 0.5rem;
+  }
+
+  .call-box h3 {
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+  }
+
+  .call-box h4 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    margin-top: 0.6rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .call-box .emergency { color: #a21b1b; }
+
+  .call-list li { font-size: 11px; padding: 0.16rem 0 0.16rem 0.9rem; }
+
+  /* Footer */
+  .doc-footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 0.65rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9.5px;
+    color: var(--ink-light);
+    letter-spacing: 0.02em;
+  }
+
+  .page-num { font-weight: 600; color: var(--teal); }
+
+  .questions {
+    margin-top: 0.55rem;
+    padding: 0.7rem 0.85rem;
+    background: var(--cream);
+    border-radius: 5px;
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  strong { color: var(--ink); }
+
+  /* Print */
+  @media print {
+    @page { size: letter; margin: 0; }
+    body { background: white; padding: 0; }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      padding: 0.55in 0.65in;
+      page-break-after: always;
+      min-height: 11in;
+    }
+    .page:last-child { page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== PAGE 1 ========== -->
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title">After your wisdom teeth</h1>
+      <div class="doc-subtitle">Recovery Guide · Third Molar Removal</div>
+    </div>
+    <div class="doc-meta">
+      Keep this guide handy<br>
+      Call our office with any questions
+    </div>
+  </header>
+
+  <p class="intro">
+    Wisdom teeth are more involved than most extractions — they sit deep in the jaw, usually require bone removal, and sometimes sit right next to a nerve. Your recovery will take a bit longer than a routine extraction, and the first few days can feel rough. That's normal. Here's what to expect and what to do.
+  </p>
+
+  <!-- Timeline -->
+  <div class="timeline">
+    <div class="timeline-step">
+      <div class="timeline-when">Today</div>
+      <div class="timeline-what">Rest. Gauze. Ice. Soft, cool foods. Don't disturb the sites.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Days 2–4</div>
+      <div class="timeline-what">Peak of pain, swelling, and jaw stiffness. This is the worst stretch.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Days 5–7</div>
+      <div class="timeline-what">Noticeable improvement. Jaw loosens. Diet expands.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Week 2+</div>
+      <div class="timeline-what">Mostly back to normal. Full tissue healing takes several weeks.</div>
+    </div>
+  </div>
+
+  <!-- Pain curve visual -->
+  <div class="pain-curve">
+    <div class="pain-curve-title">What the pain &amp; swelling curve usually looks like</div>
+    <div class="curve-bars">
+      <div class="curve-bar" style="height: 35%;"></div>
+      <div class="curve-bar" style="height: 70%;"></div>
+      <div class="curve-bar" style="height: 95%;"></div>
+      <div class="curve-bar" style="height: 85%;"></div>
+      <div class="curve-bar" style="height: 55%;"></div>
+      <div class="curve-bar" style="height: 35%;"></div>
+      <div class="curve-bar" style="height: 20%;"></div>
+      <div class="curve-bar" style="height: 10%;"></div>
+    </div>
+    <div class="curve-labels">
+      <div>Day 0</div><div>Day 1</div><div>Day 2</div><div>Day 3</div><div>Day 4</div><div>Day 5</div><div>Day 6</div><div>Day 7</div>
+    </div>
+  </div>
+
+  <!-- Section 1: First 24 hours -->
+  <section>
+    <h2><span class="num">1</span> The first 24 hours</h2>
+
+    <h3 class="sub">Protect the blood clot</h3>
+    <p>A blood clot forms in each socket — it's your body's bandage. Losing it early is the main cause of "dry socket," which wisdom teeth are especially prone to.</p>
+    <ul class="clean cross">
+      <li>No rinsing, swishing, or spitting for 24 hours — let saliva gently drain</li>
+      <li>No straws, no vaping, no sucking motions for 72 hours</li>
+      <li>No smoking for at least 72 hours (longer is better)</li>
+      <li>Don't poke the sites with your tongue or finger</li>
+    </ul>
+
+    <h3 class="sub">Bleeding</h3>
+    <p>Bite firmly on gauze for 30–45 minutes. Oozing and pink saliva for the first day is normal.</p>
+    <div class="callout tip">
+      <div class="callout-icon">💡</div>
+      <div><strong>If bleeding restarts:</strong> fold a fresh gauze (or a damp black tea bag — the tannins help) over the socket, bite firmly without checking for 30 minutes, and keep your head elevated.</div>
+    </div>
+
+    <h3 class="sub">Ice for swelling</h3>
+    <ul class="clean">
+      <li>20 minutes on, 20 minutes off, for the first 24 hours</li>
+      <li>You'll have "chipmunk cheeks" — this peaks at 48–72 hours, not the day of surgery</li>
+      <li>After 48 hours, switch to warm moist compresses</li>
+      <li>Bruising on the cheeks or neck is normal and can appear days later</li>
+    </ul>
+
+    <h3 class="sub">Eat soft, cool foods</h3>
+    <div class="two-col">
+      <div class="col-card">
+        <h3>Good choices</h3>
+        <ul class="clean check">
+          <li>Yogurt, cottage cheese, pudding</li>
+          <li>Smoothies (spoon only — no straw)</li>
+          <li>Mashed potatoes, applesauce</li>
+          <li>Scrambled eggs, soft pasta</li>
+          <li>Lukewarm soup, broth</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h3>Avoid for at least a week</h3>
+        <ul class="clean cross">
+          <li>Hot temperatures (can restart bleeding)</li>
+          <li>Hard, crunchy, chewy foods</li>
+          <li>Chips, nuts, popcorn, rice, seeds</li>
+          <li>Carbonated and alcoholic drinks</li>
+          <li>Straws and spoons pressed into the sites</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub">Rest</h3>
+    <p style="margin-bottom: 0;">Take 3–5 days off from work or school — ask us if you need a written excuse. No exercise, heavy lifting, or strenuous activity for at least 72 hours — elevated blood pressure can restart bleeding. Sleep with your head elevated on an extra pillow the first few nights.</p>
+  </section>
+
+  <footer class="doc-footer">
+    <div>Wisdom Teeth Recovery Guide</div>
+    <div class="page-num">Page 1 of 2 · Turn over</div>
+  </footer>
+</article>
+
+<!-- ========== PAGE 2 ========== -->
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title" style="font-size: 22px;">Days 2 through 7 and beyond</h1>
+      <div class="doc-subtitle">Wisdom Teeth Recovery · continued</div>
+    </div>
+    <div class="doc-meta">Page 2 of 2</div>
+  </header>
+
+  <!-- Section 2: Pain & Swelling -->
+  <section>
+    <h2><span class="num">2</span> Pain, swelling, and a stiff jaw</h2>
+    <p class="section-lead"><strong>Days 2, 3, and 4 are the peak.</strong> After that, each day should be a little better than the last. A combination of <strong>ibuprofen + acetaminophen</strong> is as effective as prescription opioids for most dental pain — see your <strong>Medication Guide</strong> for dosing.</p>
+
+    <h3 class="sub">A stiff jaw is expected</h3>
+    <p style="margin-bottom: 0.35rem;">Most patients can't open their mouth very wide for about a week. This is called <strong>trismus</strong> — the muscles around the surgical area tighten up from the surgery and swelling. It usually peaks on day 2–3 and slowly improves over 1–2 weeks. Gentle jaw-opening stretches after day 3 (without forcing it) can help.</p>
+  </section>
+
+  <!-- Section 3: Normal vs call -->
+  <section>
+    <h2><span class="num">3</span> What's normal vs. what's not</h2>
+    <div class="compare">
+      <div class="compare-col">
+        <h3>Normal (expected)</h3>
+        <ul class="clean check">
+          <li>Peak pain and swelling at days 2–4, then daily improvement</li>
+          <li>Bruising of cheek, jaw, or neck (can appear days later)</li>
+          <li>Jaw stiffness limiting how wide you can open</li>
+          <li>Yellow or whitish tissue in the sockets (healing, not pus)</li>
+          <li>Slight bad taste or smell for a few days</li>
+          <li>Slightly altered or "less sharp" sensation in lip, chin, or tongue that's gradually improving</li>
+          <li>Food packing into the sockets (especially lower sites)</li>
+        </ul>
+      </div>
+      <div class="compare-col">
+        <h3>Call our office</h3>
+        <ul class="clean cross">
+          <li>Severe pain on day 3–5 that medication doesn't touch at all (possible dry socket)</li>
+          <li>Pain, swelling, or bad taste that returns <em>after</em> you'd started to feel better (possible infection)</li>
+          <li>Bleeding that won't stop after 30–45 min of firm pressure</li>
+          <li>Fever over 101°F</li>
+          <li>Numbness or tingling in lip, chin, or tongue that isn't clearly improving by the next morning — call right away if an area still feels completely frozen once the anesthetic should have worn off</li>
+          <li>Jaw stiffness getting worse (not better) after day 5</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-icon">💡</div>
+      <div><strong>Is it dry socket?</strong> If your pain medication brings pain down to a manageable level (around <strong>2 or 3 out of 10</strong>), it's <em>not</em> dry socket — you're on a normal healing curve. If the medication does <strong>nothing at all</strong>, that's the hallmark of dry socket. Call us; it's easily treated with a medicated dressing that brings fast relief.</div>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-icon">💡</div>
+      <div><strong>Is it an infection?</strong> Watch the <em>direction</em> of your pain, not just how much it hurts. After day 4, each day should be a little better. If you were improving and then the pain, swelling, or a bad taste suddenly comes back, that's the classic pattern for an infection. Call us.</div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">ℹ</div>
+      <div><strong>Why do these happen?</strong> Dry socket and infection are the most common complications after wisdom teeth — combined, they happen in roughly <strong>15–30% of cases</strong>, higher than simple extractions because wisdom teeth sit deeper and are harder to access. The mouth isn't sterile the way skin is; even with sterile instruments and careful technique, some patients still develop one. Both are usually straightforward to treat — call us and we'll take care of it.</div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">ℹ</div>
+      <div><strong>About nerve sensation:</strong> The nerves that give feeling to your lip, chin, and tongue sit close to the lower wisdom teeth. It's common for these areas to feel a little "off" or less sharp for a day or two — usually from nerve bruising, which almost always fully recovers on its own. What we want to know about — the same day or next morning, not later — is <strong>complete numbness</strong> (feeling like you're still frozen from dental anesthetic) that persists after the local anesthetic should have worn off, or altered sensation that isn't clearly improving day to day.</div>
+    </div>
+  </section>
+
+  <!-- Section 4: Rinsing & hygiene -->
+  <section>
+    <h2><span class="num">4</span> Rinsing &amp; hygiene (start tomorrow)</h2>
+    <ul class="clean">
+      <li>Mix ½ tsp salt in 8 oz warm water. Rinse gently 3–4× daily, especially after meals.</li>
+      <li>Let water <em>fall out</em> of your mouth — don't spit forcefully.</li>
+      <li>If you have a plastic <strong>curved-tip syringe</strong> (we may give you one), start using it around day 5 to flush food out of the lower sockets. Aim low and away from the clot.</li>
+      <li>Brush the rest of your teeth normally starting tomorrow. Avoid the surgical sites directly for 3 days.</li>
+      <li>If you have a <strong>chlorhexidine (Peridex) rinse</strong>, continue it twice daily as you did before surgery; use saltwater the rest of the day.</li>
+    </ul>
+  </section>
+
+  <!-- Section 5: Other things -->
+  <section>
+    <h2><span class="num">5</span> Other things that may help</h2>
+    <ul class="clean">
+      <li><strong>Bromelain</strong> (500 mg, 3× daily, 5–7 days) — a pineapple-derived enzyme with research support for reducing swelling and speeding recovery after oral surgery. Skip if you take a blood thinner, have a bleeding disorder, or are allergic to pineapple.</li>
+      <li><strong>Sleep</strong> — 7+ hours a night. Sleep loss measurably slows healing.</li>
+      <li><strong>Protein</strong> — aim for 80–100g daily. Soft options: Greek yogurt, cottage cheese, eggs, protein smoothies (spoon only).</li>
+      <li><strong>No nicotine or cannabis smoke</strong> — smoking, vaping, or nicotine pouches significantly increase the risk of dry socket and delay healing. Avoid completely for at least 72 hours; a week or more is better.</li>
+      <li><strong>No alcohol for at least 72 hours</strong> — interacts with medications and slows healing.</li>
+    </ul>
+  </section>
+
+  <!-- Call us -->
+  <section>
+    <div class="call-box">
+      <h3>When to call us</h3>
+      <ul class="clean call-list">
+        <li>Severe pain on day 3–5 that your medication doesn't help at all (possible dry socket)</li>
+        <li>Pain, swelling, or bad taste that returns after you'd started to feel better (possible infection)</li>
+        <li>Heavy bleeding that won't stop after 30–45 min of firm gauze pressure</li>
+        <li>Swelling spreading to your neck or around your eye</li>
+        <li>Fever over 101°F</li>
+        <li>Numbness in lip, chin, or tongue that isn't clearly improving by the next morning</li>
+        <li>Jaw stiffness getting worse (not better) after day 5</li>
+      </ul>
+      <h4 class="emergency">Urgent — don't wait</h4>
+      <ul class="clean call-list">
+        <li>Difficulty breathing or swallowing</li>
+        <li>Rapidly spreading swelling to your neck, under your tongue, or around your eye</li>
+      </ul>
+      <p style="font-size: 10.5px; color: var(--ink-soft); margin-top: 0.55rem; margin-bottom: 0;">Call our office right away for the on-call provider. If you truly cannot breathe or swallow, call 911.</p>
+    </div>
+  </section>
+
+  <div class="questions">
+    Wisdom teeth recovery can feel worse than expected around days 2–4 — you're not alone, and it doesn't mean anything is wrong. If something doesn't feel right, call us.
+  </div>
+
+  <footer class="doc-footer">
+    <div>Wisdom Teeth Recovery Guide</div>
+    <div class="page-num">Page 2 of 2</div>
+  </footer>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diabetes Guide for Oral Surgery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2733;
+    --ink-soft: #4a5a6b;
+    --ink-light: #7a8a9b;
+    --paper: #fdfcf9;
+    --cream: #f6f1e8;
+    --teal: #2a5f6f;
+    --teal-soft: #e6eff1;
+    --amber: #b8691f;
+    --amber-soft: #fdf3e6;
+    --sage: #4a7c59;
+    --sage-soft: #edf3ee;
+    --rule: #e5ddd0;
+    --rule-strong: #c9bfae;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e8e4db;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body { padding: 2rem 1rem; }
+
+  .page {
+    background: var(--paper);
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 2rem;
+    padding: 0.55in 0.6in;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .doc-header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+
+  .doc-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .doc-subtitle {
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 0.4rem;
+  }
+
+  .doc-meta {
+    font-size: 10px;
+    color: var(--ink-light);
+    text-align: right;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  .intro {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 6.5in;
+    margin-bottom: 1rem;
+  }
+
+  .section-heading {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--rule);
+    letter-spacing: -0.005em;
+    margin-top: 0.95rem;
+  }
+
+  .section-heading:first-of-type { margin-top: 0; }
+
+  p, li { font-size: 12px; color: var(--ink); line-height: 1.55; }
+  p { margin-bottom: 0.45rem; }
+
+  /* GLP-1 warning box - prominent */
+  .glp1-box {
+    background: linear-gradient(to right, var(--amber), #8f4c10);
+    color: white;
+    border-radius: 7px;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .glp1-box h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .glp1-box h3 .badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    background: rgba(255,255,255,0.25);
+    padding: 3px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .glp1-box p {
+    color: rgba(255,255,255,0.95);
+    font-size: 11.5px;
+    line-height: 1.5;
+    margin-bottom: 0.45rem;
+  }
+
+  .glp1-box p:last-child { margin-bottom: 0; }
+
+  .glp1-box strong { color: white; }
+
+  .glp1-list {
+    background: rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 0.4rem 0.65rem;
+    margin: 0.5rem 0;
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.95);
+    line-height: 1.55;
+  }
+
+  /* Med table */
+  .med-table {
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 0.4rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .med-row {
+    display: grid;
+    grid-template-columns: 1.2fr 2.8fr;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .med-row:last-child { border-bottom: none; }
+
+  .med-row.header {
+    background: var(--teal-soft);
+  }
+
+  .med-cell {
+    padding: 0.55rem 0.75rem;
+    font-size: 11px;
+    border-right: 1px solid var(--rule);
+    line-height: 1.5;
+  }
+
+  .med-cell:last-child { border-right: none; }
+
+  .med-cell.label {
+    font-weight: 600;
+    color: var(--teal);
+  }
+
+  .med-row.header .med-cell {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+  }
+
+  /* Callouts */
+  .callout {
+    padding: 0.6rem 0.8rem;
+    border-radius: 5px;
+    font-size: 11px;
+    line-height: 1.55;
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+  }
+
+  .callout.info { background: var(--teal-soft); border-left: 3px solid var(--teal); color: #1a3a42; }
+  .callout.tip { background: var(--sage-soft); border-left: 3px solid var(--sage); color: #2a4a33; }
+  .callout.warn { background: var(--amber-soft); border-left: 3px solid var(--amber); color: #5a3410; }
+
+  .callout-icon { flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+
+  /* Two-col layout */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .col-card {
+    background: var(--cream);
+    border-radius: 5px;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .col-card h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    margin-bottom: 0.4rem;
+  }
+
+  ul.clean { list-style: none; padding: 0; }
+
+  ul.clean li {
+    padding: 0.17rem 0 0.17rem 1.05rem;
+    position: relative;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  ul.clean li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.56rem;
+    width: 4px;
+    height: 4px;
+    background: var(--teal);
+    border-radius: 50%;
+  }
+
+  ul.clean.check li:before {
+    content: "✓"; background: none; color: var(--sage);
+    font-weight: 700; top: 0.18rem; width: auto; height: auto; font-size: 11px;
+  }
+
+  ul.clean.cross li:before {
+    content: "✕"; background: none; color: var(--amber);
+    font-weight: 600; top: 0.18rem; width: auto; height: auto; font-size: 11px;
+  }
+
+  .doc-footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 0.55rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9.5px;
+    color: var(--ink-light);
+    letter-spacing: 0.02em;
+  }
+
+  .page-num { font-weight: 600; color: var(--teal); }
+
+  strong { color: var(--ink); }
+
+  @media print {
+    @page { size: letter; margin: 0; }
+    body { background: white; padding: 0; }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      padding: 0.5in 0.6in;
+      min-height: 11in;
+    }
+  }
+</style>
+</head>
+<body>
+
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title">Diabetes &amp; oral surgery</h1>
+      <div class="doc-subtitle">Special instructions for diabetic patients</div>
+    </div>
+    <div class="doc-meta">
+      Pairs with your<br>
+      procedure-specific<br>
+      recovery guide
+    </div>
+  </header>
+
+  <p class="intro">
+    Having diabetes doesn't prevent you from having oral surgery — but it does change a few things about how we prepare, manage sedation, and care for you afterward. <strong>Tell us about all your diabetes medications — including any GLP-1 drugs like Ozempic, Wegovy, or Mounjaro — well before your procedure date.</strong> If you have any questions about this guide, call our office before making changes to your medications.
+  </p>
+
+  <!-- GLP-1 Warning -->
+  <div class="glp1-box">
+    <h3>⚠ If you take a GLP-1 medication <span class="badge">Critical for sedation</span></h3>
+    <p>GLP-1 drugs slow down how fast your stomach empties food. Even after a normal fasting period, there can still be food in your stomach — which creates a real risk of aspiration (food entering your lungs) during sedation.</p>
+    <div class="glp1-list">
+      <strong>Common GLP-1 medications:</strong> Ozempic, Wegovy, Rybelsus (semaglutide) · Mounjaro, Zepbound (tirzepatide) · Trulicity (dulaglutide) · Victoza, Saxenda (liraglutide)
+    </div>
+    <p><strong>If you are receiving IV sedation:</strong> Current national guidance (2024 multi-society statement) says most patients <strong>continue</strong> their GLP-1 — and our office follows that: <strong>keep taking your medication as prescribed; do not skip a dose for surgery</strong>. Because office sedation does not use a protected airway, <strong>our fasting policy is more conservative than national guidance</strong>: follow a <strong>clear-liquid diet for the 24 hours before your fasting time</strong>. If your dose was <strong>recently increased</strong> or you are having <strong>any stomach symptoms</strong>, tell us when you schedule — we may move your appointment for your safety. Call our office <em>and</em> your prescribing doctor as soon as you schedule surgery to plan this together.</p>
+    <p><strong>Day of surgery:</strong> if you have nausea, vomiting, bloating, or abdominal pain, tell us before we start — we may need to reschedule for your safety.</p>
+    <p><strong>If you are not having sedation</strong> (local anesthesia only): you typically do not need to stop your GLP-1. Confirm with us either way.</p>
+  </div>
+
+  <!-- Pre-op -->
+  <h2 class="section-heading">Before your surgery</h2>
+
+  <div class="med-table">
+    <div class="med-row header">
+      <div class="med-cell">Medication</div>
+      <div class="med-cell">What to do</div>
+    </div>
+    <div class="med-row">
+      <div class="med-cell label">Metformin</div>
+      <div class="med-cell">Usually <strong>hold the morning of surgery</strong> if you're having sedation or a long procedure. Restart once you're eating normally. Confirm with us.</div>
+    </div>
+    <div class="med-row">
+      <div class="med-cell label">Other oral diabetes pills</div>
+      <div class="med-cell">(Sulfonylureas like glipizide, glyburide.) Usually <strong>hold the morning of surgery</strong> because you'll be fasting — taking them without eating can cause low blood sugar. <strong>SGLT-2 inhibitors are different:</strong> stop Jardiance, Farxiga, or Invokana <strong>3 days before</strong> surgery (Steglatro: <strong>4 days</strong>) — they can cause a dangerous acid buildup (ketoacidosis) even with normal glucose. Confirm timing with your prescriber.</div>
+    </div>
+    <div class="med-row">
+      <div class="med-cell label">Long-acting insulin</div>
+      <div class="med-cell">(Lantus, Basaglar, Tresiba, Levemir, Toujeo.) Usually take <strong>about half your normal dose</strong> the night before or morning of surgery. Confirm the exact amount with your prescriber.</div>
+    </div>
+    <div class="med-row">
+      <div class="med-cell label">Mealtime insulin</div>
+      <div class="med-cell">(Humalog, Novolog, Apidra, Admelog.) <strong>Do not take</strong> the morning of surgery since you're not eating. Bring it with you in case we need it afterward.</div>
+    </div>
+    <div class="med-row">
+      <div class="med-cell label">Insulin pumps</div>
+      <div class="med-cell">Usually kept on your <strong>basal rate</strong>. Skip the breakfast bolus. Bring extra supplies and your glucose meter to your appointment.</div>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-icon">💡</div>
+    <div><strong>Bring to your appointment:</strong> glucose meter, test strips, a fast-acting sugar source (glucose tabs or juice), a snack for after, and a list of your current doses. Arrive with your glucose in a safe range — we'll check it again before starting.</div>
+  </div>
+
+  <!-- Day of -->
+  <h2 class="section-heading">The day of surgery</h2>
+
+  <div class="two-col">
+    <div class="col-card">
+      <h3>Do</h3>
+      <ul class="clean check">
+        <li>Follow your NPO (no food/water) instructions exactly</li>
+        <li>Take blood pressure and heart medications with a tiny sip of water</li>
+        <li>Check your glucose before leaving for your appointment</li>
+        <li>Bring your glucose meter and fast-acting sugar</li>
+        <li>Let us know if your glucose is below 80 or above 250 on arrival</li>
+      </ul>
+    </div>
+    <div class="col-card">
+      <h3>Don't</h3>
+      <ul class="clean cross">
+        <li>Take mealtime (short-acting) insulin while fasting</li>
+        <li>Take your GLP-1 the morning of sedation</li>
+        <li>Skip your long-acting insulin entirely — take the adjusted dose</li>
+        <li>Eat or drink inside your NPO window</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Post-op -->
+  <h2 class="section-heading">After your surgery</h2>
+
+  <p>Diabetes affects how wounds heal. A few things that matter more after surgery than day to day:</p>
+
+  <ul class="clean">
+    <li><strong>Aim for good glucose control</strong> (generally 80–180) during the first 2 weeks. High glucose slows healing and raises infection risk.</li>
+    <li><strong>Eating will be different for a few days</strong> — soft foods, smaller portions. You may need to adjust insulin doses. Check your glucose more often than usual (every 3–4 hours while awake for the first few days).</li>
+    <li><strong>If you can't eat normally, don't take your usual mealtime insulin.</strong> Match your dose to what you're actually eating. Call your diabetes provider if you're unsure.</li>
+    <li><strong>Hydration matters.</strong> Dehydration raises blood sugar and slows healing. Sugar-free fluids are fine.</li>
+    <li><strong>Infection risk is higher with diabetes.</strong> Follow the Call Us warnings in your procedure handout carefully — especially fever, returning pain, bad taste, or pus. Call at the first sign rather than waiting.</li>
+  </ul>
+
+  <div class="callout info">
+    <div class="callout-icon">ℹ</div>
+    <div><strong>About pain medications and glucose:</strong> Ibuprofen and acetaminophen don't affect blood sugar meaningfully. Steroid dose packs (if prescribed) will raise your glucose for 5–7 days — plan to check more often and adjust insulin as your diabetes provider directs. Antibiotics can cause GI upset that affects eating, which in turn affects glucose.</div>
+  </div>
+
+  <!-- When to call -->
+  <h2 class="section-heading">Call our office right away if…</h2>
+
+  <div class="two-col">
+    <div class="col-card">
+      <h3>Glucose problems</h3>
+      <ul class="clean">
+        <li>Glucose over 250 that won't come down</li>
+        <li>Glucose under 70 that you can't correct</li>
+        <li>Ketones in your urine (type 1)</li>
+        <li>Vomiting or unable to keep fluids down</li>
+      </ul>
+    </div>
+    <div class="col-card">
+      <h3>Healing concerns</h3>
+      <ul class="clean">
+        <li>Any standard warning sign on your procedure handout</li>
+        <li>Signs of infection at the surgical site</li>
+        <li>Fever over 101°F</li>
+        <li>Pain or swelling worsening after day 3</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <div class="callout-icon">⚠</div>
+    <div><strong>Don't hesitate to call.</strong> Diabetic patients sometimes get infections a day or two later than others and with fewer early signs. We'd rather see you for a quick check-in than treat a larger problem later.</div>
+  </div>
+
+  <footer class="doc-footer">
+    <div>Diabetes Guide · Pairs with your procedure-specific handout</div>
+    <div class="page-num">Confirm all medication changes with your diabetes provider</div>
+  </footer>
+</article>
+
+</body>
+</html>

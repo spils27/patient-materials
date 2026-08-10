@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>After Your Alveoplasty &amp; Immediate Denture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2733;
+    --ink-soft: #4a5a6b;
+    --ink-light: #7a8a9b;
+    --paper: #fdfcf9;
+    --cream: #f6f1e8;
+    --teal: #2a5f6f;
+    --teal-soft: #e6eff1;
+    --amber: #b8691f;
+    --amber-soft: #fdf3e6;
+    --sage: #4a7c59;
+    --sage-soft: #edf3ee;
+    --rule: #e5ddd0;
+    --rule-strong: #c9bfae;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e8e4db;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body { padding: 2rem 1rem; }
+
+  .page {
+    background: var(--paper);
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 2rem;
+    padding: 0.6in 0.65in;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .doc-header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+
+  .doc-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .doc-subtitle {
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 0.4rem;
+  }
+
+  .doc-meta {
+    font-size: 10px;
+    color: var(--ink-light);
+    text-align: right;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  .intro {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 6.5in;
+    margin-bottom: 1.1rem;
+  }
+
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 1.2rem;
+    background: var(--cream);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .timeline-step {
+    padding: 0.7rem 0.6rem;
+    border-right: 1px solid var(--rule-strong);
+  }
+
+  .timeline-step:last-child { border-right: none; }
+
+  .timeline-when {
+    font-size: 9.5px;
+    font-weight: 600;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 3px;
+  }
+
+  .timeline-what {
+    font-size: 11px;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+
+  section { margin-bottom: 1rem; }
+
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    letter-spacing: -0.005em;
+  }
+
+  h2 .num {
+    font-family: 'Inter', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: var(--teal);
+    color: white;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  h3.sub {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.7rem;
+    margin-bottom: 0.35rem;
+  }
+
+  h3.sub:first-child { margin-top: 0; }
+
+  p, li { font-size: 12px; color: var(--ink); line-height: 1.55; }
+  p { margin-bottom: 0.45rem; }
+
+  .section-lead { color: var(--ink-soft); margin-bottom: 0.55rem; }
+
+  .callout {
+    padding: 0.65rem 0.8rem;
+    border-radius: 5px;
+    font-size: 11px;
+    line-height: 1.55;
+    margin-top: 0.55rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .callout.warn { background: var(--amber-soft); border-left: 3px solid var(--amber); color: #5a3410; }
+  .callout.info { background: var(--teal-soft); border-left: 3px solid var(--teal); color: #1a3a42; }
+  .callout.tip { background: var(--sage-soft); border-left: 3px solid var(--sage); color: #2a4a33; }
+
+  .callout-icon { flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+
+  .protect-box {
+    background: linear-gradient(to right, var(--teal), #1e4b58);
+    color: white;
+    border-radius: 7px;
+    padding: 0.9rem 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.95rem;
+  }
+
+  .protect-box h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: white;
+  }
+
+  .protect-box p {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 11.5px;
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  .protect-box strong { color: white; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-top: 0.4rem;
+  }
+
+  .col-card {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .col-card h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    margin-bottom: 0.45rem;
+  }
+
+  ul.clean { list-style: none; padding: 0; }
+
+  ul.clean li {
+    padding: 0.2rem 0 0.2rem 1.1rem;
+    position: relative;
+    font-size: 11.5px;
+  }
+
+  ul.clean li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.58rem;
+    width: 4px;
+    height: 4px;
+    background: var(--teal);
+    border-radius: 50%;
+  }
+
+  ul.cross li:before {
+    content: "✕";
+    background: none;
+    color: var(--amber);
+    font-weight: 600;
+    top: 0.2rem; width: auto; height: auto; font-size: 11px;
+  }
+
+  ul.check li:before {
+    content: "✓";
+    background: none;
+    color: var(--sage);
+    font-weight: 700;
+    top: 0.2rem; width: auto; height: auto; font-size: 11px;
+  }
+
+  .conditional-panel {
+    background: linear-gradient(to right, var(--teal-soft), #f0e8dc);
+    border-radius: 7px;
+    padding: 0.8rem 0.95rem 0.75rem;
+    margin-top: 0.4rem;
+    border: 1px solid #cdd9d4;
+    position: relative;
+  }
+
+  .conditional-label {
+    position: absolute;
+    top: -8px;
+    left: 0.85rem;
+    background: var(--teal);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  .conditional-panel h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: 0.15rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .conditional-panel p { font-size: 11.5px; margin-bottom: 0.35rem; }
+  .conditional-panel ul.clean li { font-size: 11px; padding: 0.15rem 0 0.15rem 0.9rem; }
+
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 0.4rem;
+  }
+
+  .compare-col { padding: 0.65rem 0.8rem; }
+
+  .compare-col:first-child {
+    border-right: 1px solid var(--rule);
+    background: var(--sage-soft);
+  }
+
+  .compare-col:last-child { background: var(--amber-soft); }
+
+  .compare h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+
+  .compare-col:first-child h3 { color: var(--sage); }
+  .compare-col:last-child h3 { color: var(--amber); }
+
+  .compare ul.clean li { font-size: 11px; padding: 0.15rem 0 0.15rem 0.9rem; }
+
+  .call-box {
+    border: 1.5px solid var(--teal);
+    border-radius: 7px;
+    padding: 0.85rem 1rem;
+    background: var(--paper);
+    margin-top: 0.5rem;
+  }
+
+  .call-box h3 {
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+  }
+
+  .call-box h4 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    margin-top: 0.6rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .call-box .emergency { color: #a21b1b; }
+
+  .call-list li { font-size: 11px; padding: 0.16rem 0 0.16rem 0.9rem; }
+
+  .doc-footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 0.65rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9.5px;
+    color: var(--ink-light);
+    letter-spacing: 0.02em;
+  }
+
+  .page-num { font-weight: 600; color: var(--teal); }
+
+  .questions {
+    margin-top: 0.55rem;
+    padding: 0.7rem 0.85rem;
+    background: var(--cream);
+    border-radius: 5px;
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  strong { color: var(--ink); }
+
+  @media print {
+    @page { size: letter; margin: 0; }
+    body { background: white; padding: 0; }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      padding: 0.55in 0.65in;
+      page-break-after: always;
+      min-height: 11in;
+    }
+    .page:last-child { page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title">After your denture surgery</h1>
+      <div class="doc-subtitle">Alveoplasty · Immediate Denture Delivery</div>
+    </div>
+    <div class="doc-meta">
+      Keep this guide handy<br>
+      Call our office with any questions
+    </div>
+  </header>
+
+  <p class="intro">
+    Your remaining teeth were removed and the bone was smoothed so your new denture can fit comfortably. A soft liner inside the denture cushions the healing tissues. You're getting used to a new denture while your gums and bone are still healing — this takes time and some patience. Most people are surprised by how fast they adapt, even when the first days feel strange.
+  </p>
+
+  <div class="timeline">
+    <div class="timeline-step">
+      <div class="timeline-when">First 24 hrs</div>
+      <div class="timeline-what">Keep denture in. Rest. Ice. Soft, cool foods.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Days 1–7</div>
+      <div class="timeline-what">Swelling peaks day 2–3. Remove denture for cleaning only.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Weeks 2–8</div>
+      <div class="timeline-what">Gums shrink as they heal. Adjustments and relines as needed.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Months 3–6</div>
+      <div class="timeline-what">Bone fully heals. Time for a final reline or new denture.</div>
+    </div>
+  </div>
+
+  <div class="protect-box">
+    <h3>Leave the denture in for the first 24 hours</h3>
+    <p>The denture acts as a pressure bandage over the sockets and bone. It helps stop bleeding, reduces swelling, and keeps the tissue in its healing shape. <strong>Do not remove it for the first 24 hours, even if it feels tight or uncomfortable.</strong> If you take it out too early, the tissue can swell so much that the denture won't go back in.</p>
+  </div>
+
+  <section>
+    <h2><span class="num">1</span> The first 24 hours</h2>
+
+    <h3 class="sub">Bleeding</h3>
+    <p>Some oozing is normal for the first day — the denture itself applies pressure and helps with this. If bleeding is heavy, bite gently on gauze placed <em>over</em> the denture for 30–45 minutes. Keep your head elevated, including when sleeping.</p>
+
+    <h3 class="sub">Ice for swelling</h3>
+    <ul class="clean">
+      <li>20 minutes on, 20 minutes off, for the first 24 hours</li>
+      <li>Swelling peaks at 48–72 hours — not the day of surgery</li>
+      <li>Bruising on the face or neck can appear days later and is normal</li>
+      <li>After 48 hours, switch to warm moist compresses</li>
+    </ul>
+
+    <h3 class="sub">Rest &amp; activity</h3>
+    <ul class="clean">
+      <li>Take it easy for 2–3 days. No work, exercise, or heavy lifting for 72 hours.</li>
+      <li>Sleep with your head elevated on an extra pillow for the first 2–3 nights.</li>
+      <li>Keep the denture in overnight for the first night.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span> After the first 24 hours — denture care</h2>
+
+    <h3 class="sub">Removing the denture</h3>
+    <p>After the first 24 hours, you can start removing the denture — <strong>only for cleaning</strong>, then put it right back in. Clean it gently over a folded towel or a sink filled with water (so it doesn't break if dropped).</p>
+
+    <h3 class="sub">Cleaning the denture</h3>
+    <ul class="clean">
+      <li>Use a soft brush and mild soap or denture cleaner — <strong>not regular toothpaste</strong> (too abrasive for the soft liner)</li>
+      <li>Rinse thoroughly before putting it back in</li>
+      <li>At night for the first few weeks, keep it in to maintain tissue shape — unless we've told you otherwise</li>
+    </ul>
+
+    <div class="callout warn">
+      <div class="callout-icon">⚠</div>
+      <div><strong>Care for the soft liner inside your denture.</strong> The pink or clear cushion material (Lynal or similar) is delicate. <strong>Never use hot water</strong> — it warps the liner. <strong>Do not use denture adhesive</strong> on the soft liner — it doesn't bond properly and can degrade the material. Rinse with cool water only.</div>
+    </div>
+  </section>
+
+  <footer class="doc-footer">
+    <div>Alveoplasty &amp; Immediate Denture Recovery Guide</div>
+    <div class="page-num">Page 1 of 2 · Turn over</div>
+  </footer>
+</article>
+
+<!-- PAGE 2 -->
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title" style="font-size: 22px;">Living with your new denture</h1>
+      <div class="doc-subtitle">Immediate Denture Recovery · continued</div>
+    </div>
+    <div class="doc-meta">Page 2 of 2</div>
+  </header>
+
+  <section>
+    <h2><span class="num">3</span> Medications, rinsing &amp; hygiene</h2>
+    <p class="section-lead">Most patients need pain medication for 3–5 days. A combination of <strong>ibuprofen + acetaminophen</strong> is usually more than enough — see your <strong>Medication Guide</strong> for dosing.</p>
+
+    <h3 class="sub">Salt water rinses (start tomorrow)</h3>
+    <p>Mix ½ tsp salt in 8 oz warm water. Rinse gently <strong>after each meal</strong> and at bedtime. Take the denture out to rinse, and rinse the denture separately. Let water fall out of your mouth — don't spit forcefully.</p>
+
+    <h3 class="sub">If prescribed a chlorhexidine rinse</h3>
+    <p style="margin-bottom: 0;">Use it twice daily for the first 1–2 weeks. Take the denture out first, let the rinse pool, tilt gently, let it fall out. Don't eat or drink for 30 minutes after.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span> Eating &amp; talking</h2>
+    <div class="two-col">
+      <div class="col-card">
+        <h3>Eating</h3>
+        <ul class="clean">
+          <li>First few days: cool, soft foods only — yogurt, pudding, applesauce, soft eggs</li>
+          <li>Days 3–7: add soft pasta, fish, cooked vegetables</li>
+          <li>Cut food into small pieces and chew slowly, using both sides evenly</li>
+          <li>Avoid sticky foods (caramel, bread crusts) — they pull at the denture</li>
+          <li>No hot foods/drinks for 48 hours</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h3>Talking</h3>
+        <ul class="clean">
+          <li>Speech will feel strange for the first week or two</li>
+          <li>Reading aloud at home for 10–15 min a day helps your tongue adapt faster</li>
+          <li>Extra saliva at first is normal — your body is adjusting to the denture</li>
+          <li>"S" and "F" sounds are the hardest — they come back within days</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">5</span> What's normal vs. what's not</h2>
+    <div class="compare">
+      <div class="compare-col">
+        <h3>Normal (expected)</h3>
+        <ul class="clean check">
+          <li>Swelling peaking at 48–72h, then improving</li>
+          <li>Bruising of the face, jaw, or neck appearing days later</li>
+          <li>The denture feeling bulky or too big in your mouth</li>
+          <li>Speaking, eating, and smiling feeling unfamiliar</li>
+          <li>Extra saliva for the first few days</li>
+          <li>A sore spot or two developing over the first week — we'll adjust at your follow-up</li>
+          <li>The denture getting looser as your gums shrink during healing</li>
+          <li>Slight bad taste for a few days</li>
+        </ul>
+      </div>
+      <div class="compare-col">
+        <h3>Call our office</h3>
+        <ul class="clean cross">
+          <li>Severe pain not controlled by medication</li>
+          <li>Pain, swelling, or bad taste that returns <em>after</em> you'd started to feel better</li>
+          <li>Heavy bleeding that won't stop after 30–45 min of pressure</li>
+          <li>The denture won't go back in after you removed it</li>
+          <li>A specific sharp pain that won't resolve — likely a sore spot that needs adjustment</li>
+          <li>Fever over 101°F</li>
+          <li>Foul smell or pus from the gums</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">ℹ</div>
+      <div><strong>About looseness.</strong> Your denture is snug today because the tissue is swollen and the ridge is still full. As the swelling goes down and the bone settles over the next 3–6 months, the denture will gradually feel looser. This is expected. We'll do adjustments along the way, and once healing is complete (usually around 3–6 months), you'll get a final reline or a brand new denture that fits the fully healed ridge.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">6</span> Follow-up visits</h2>
+    <p style="margin-bottom: 0;">Your first follow-up is typically within <strong>24–48 hours</strong> to check healing and adjust any sore spots. Expect several short visits over the next few months for small adjustments and relines as your tissues change shape. These are a normal part of getting an immediate denture — not a sign something went wrong.</p>
+  </section>
+
+  <section>
+    <div class="call-box">
+      <h3>When to call us</h3>
+      <ul class="clean call-list">
+        <li>Severe pain that your medication doesn't help at all</li>
+        <li>Pain, swelling, or bad taste returning after you'd started to feel better</li>
+        <li>The denture won't go back in after removal</li>
+        <li>A sharp, specific sore spot (we can adjust it)</li>
+        <li>Heavy bleeding that won't stop after 30–45 min of pressure</li>
+        <li>Fever over 101°F</li>
+      </ul>
+      <h4 class="emergency">Urgent — don't wait</h4>
+      <ul class="clean call-list">
+        <li>Difficulty breathing or swallowing</li>
+        <li>Rapidly spreading swelling to your neck or around your eye</li>
+      </ul>
+      <p style="font-size: 10.5px; color: var(--ink-soft); margin-top: 0.55rem; margin-bottom: 0;">Call our office right away for the on-call provider. If you truly cannot breathe or swallow, call 911.</p>
+    </div>
+  </section>
+
+  <div class="questions">
+    The first two weeks are the hardest. Most people who were nervous about this procedure tell us afterward that it went better than they expected — and that the adjustment got easier every day.
+  </div>
+
+  <footer class="doc-footer">
+    <div>Alveoplasty &amp; Immediate Denture Recovery Guide</div>
+    <div class="page-num">Page 2 of 2</div>
+  </footer>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>After Your Extraction — Recovery Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2733;
+    --ink-soft: #4a5a6b;
+    --ink-light: #7a8a9b;
+    --paper: #fdfcf9;
+    --cream: #f6f1e8;
+    --teal: #2a5f6f;
+    --teal-soft: #e6eff1;
+    --amber: #b8691f;
+    --amber-soft: #fdf3e6;
+    --sage: #4a7c59;
+    --sage-soft: #edf3ee;
+    --rule: #e5ddd0;
+    --rule-strong: #c9bfae;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e8e4db;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    padding: 2rem 1rem;
+  }
+
+  .page {
+    background: var(--paper);
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 2rem;
+    padding: 0.6in 0.65in;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+  .doc-header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+
+  .doc-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .doc-subtitle {
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 0.4rem;
+  }
+
+  .doc-meta {
+    font-size: 10px;
+    color: var(--ink-light);
+    text-align: right;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  /* Intro */
+  .intro {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 6.5in;
+    margin-bottom: 1.1rem;
+  }
+
+  /* Timeline */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-bottom: 1.2rem;
+    background: var(--cream);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .timeline-step {
+    padding: 0.7rem 0.6rem;
+    border-right: 1px solid var(--rule-strong);
+  }
+
+  .timeline-step:last-child { border-right: none; }
+
+  .timeline-when {
+    font-size: 9.5px;
+    font-weight: 600;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 3px;
+  }
+
+  .timeline-what {
+    font-size: 11px;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+
+  /* Sections */
+  section { margin-bottom: 1rem; }
+
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    letter-spacing: -0.005em;
+  }
+
+  h2 .num {
+    font-family: 'Inter', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: var(--teal);
+    color: white;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  h3.sub {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.7rem;
+    margin-bottom: 0.35rem;
+  }
+
+  h3.sub:first-child { margin-top: 0; }
+
+  p, li {
+    font-size: 12px;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  p { margin-bottom: 0.45rem; }
+
+  .section-lead {
+    color: var(--ink-soft);
+    margin-bottom: 0.55rem;
+  }
+
+  /* Callout */
+  .callout {
+    padding: 0.65rem 0.8rem;
+    border-radius: 5px;
+    font-size: 11px;
+    line-height: 1.55;
+    margin-top: 0.55rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .callout.warn {
+    background: var(--amber-soft);
+    border-left: 3px solid var(--amber);
+    color: #5a3410;
+  }
+
+  .callout.info {
+    background: var(--teal-soft);
+    border-left: 3px solid var(--teal);
+    color: #1a3a42;
+  }
+
+  .callout.tip {
+    background: var(--sage-soft);
+    border-left: 3px solid var(--sage);
+    color: #2a4a33;
+  }
+
+  .callout-icon {
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-weight: 700;
+  }
+
+  /* Two-col layout */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-top: 0.4rem;
+  }
+
+  .col-card {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .col-card h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    margin-bottom: 0.45rem;
+  }
+
+  /* Lists */
+  ul.clean {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul.clean li {
+    padding: 0.2rem 0 0.2rem 1.1rem;
+    position: relative;
+    font-size: 11.5px;
+  }
+
+  ul.clean li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.58rem;
+    width: 4px;
+    height: 4px;
+    background: var(--teal);
+    border-radius: 50%;
+  }
+
+  ul.cross li:before {
+    content: "✕";
+    background: none;
+    color: var(--amber);
+    font-weight: 600;
+    top: 0.2rem;
+    width: auto;
+    height: auto;
+    font-size: 11px;
+  }
+
+  ul.check li:before {
+    content: "✓";
+    background: none;
+    color: var(--sage);
+    font-weight: 700;
+    top: 0.2rem;
+    width: auto;
+    height: auto;
+    font-size: 11px;
+  }
+
+  /* Graft panel */
+  .graft-panel {
+    background: linear-gradient(to right, var(--teal-soft), #f0e8dc);
+    border-radius: 7px;
+    padding: 0.85rem 1rem;
+    margin-top: 0.4rem;
+    border: 1px solid #cdd9d4;
+    position: relative;
+  }
+
+  .graft-label {
+    position: absolute;
+    top: -8px;
+    left: 0.85rem;
+    background: var(--teal);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  .graft-panel h2 {
+    font-size: 15px;
+    margin-top: 0.2rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .graft-panel .section-lead {
+    font-size: 11.5px;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Normal vs not table */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 0.4rem;
+  }
+
+  .compare-col { padding: 0.65rem 0.8rem; }
+  .compare-col:first-child {
+    border-right: 1px solid var(--rule);
+    background: var(--sage-soft);
+  }
+  .compare-col:last-child {
+    background: var(--amber-soft);
+  }
+
+  .compare h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+
+  .compare-col:first-child h3 { color: var(--sage); }
+  .compare-col:last-child h3 { color: var(--amber); }
+
+  .compare ul.clean li { font-size: 11px; padding: 0.15rem 0 0.15rem 0.9rem; }
+
+  /* Call us */
+  .call-box {
+    border: 1.5px solid var(--teal);
+    border-radius: 7px;
+    padding: 0.85rem 1rem;
+    background: var(--paper);
+    margin-top: 0.5rem;
+  }
+
+  .call-box h3 {
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+  }
+
+  .call-box h4 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    margin-top: 0.6rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .call-box .emergency { color: #a21b1b; }
+
+  .call-list li {
+    font-size: 11px;
+    padding: 0.16rem 0 0.16rem 0.9rem;
+  }
+
+  /* Footer */
+  .doc-footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 0.65rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9.5px;
+    color: var(--ink-light);
+    letter-spacing: 0.02em;
+  }
+
+  .page-num {
+    font-weight: 600;
+    color: var(--teal);
+  }
+
+  /* Questions */
+  .questions {
+    margin-top: 0.55rem;
+    padding: 0.7rem 0.85rem;
+    background: var(--cream);
+    border-radius: 5px;
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  /* Helper phrases */
+  .do-list-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem;
+    margin-top: 0.35rem;
+  }
+
+  .inline-food {
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-top: 0.3rem;
+  }
+
+  strong { color: var(--ink); }
+
+  /* Print */
+  @media print {
+    @page { size: letter; margin: 0; }
+    body { background: white; padding: 0; }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      padding: 0.55in 0.65in;
+      page-break-after: always;
+      min-height: 11in;
+    }
+    .page:last-child { page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== PAGE 1 ========== -->
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title">After your extraction</h1>
+      <div class="doc-subtitle">Recovery Guide · Routine, Surgical, &amp; Bone Graft</div>
+    </div>
+    <div class="doc-meta">
+      Keep this guide handy<br>
+      Call our office with any questions
+    </div>
+  </header>
+
+  <p class="intro">
+    Your tooth has been removed. Sometimes we also place a bone graft to preserve the shape of your jaw for a future implant, bridge, or denture. Most of the healing will happen on its own — your main job in the first few days is to protect the blood clot and give the tissue time to close.
+  </p>
+
+  <!-- Timeline -->
+  <div class="timeline">
+    <div class="timeline-step">
+      <div class="timeline-when">Today</div>
+      <div class="timeline-what">Rest. Gauze. Ice. Soft, cool foods. Don't disturb the site.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Days 1–3</div>
+      <div class="timeline-what">Swelling peaks. Start saltwater rinses tomorrow. Pain tapers.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Days 4–7</div>
+      <div class="timeline-what">Most discomfort gone. Diet expands. Watch for dry socket.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Week 2+</div>
+      <div class="timeline-what">Tissue closes over. If you had a graft: full bone healing takes 3–4 months.</div>
+    </div>
+  </div>
+
+  <!-- Section 1: First 24 hours -->
+  <section>
+    <h2><span class="num">1</span> The first 24 hours (most important)</h2>
+
+    <h3 class="sub">Protect the clot</h3>
+    <p>A soft, Jell-O-like blood clot forms in the socket. It's your body's natural bandage — losing it early is the main cause of "dry socket."</p>
+    <ul class="clean cross">
+      <li>No rinsing, swishing, or spitting for 24 hours — let saliva gently drain</li>
+      <li>No straws, no vaping, no sucking motions for 72 hours</li>
+      <li>No smoking for at least 72 hours — smoking roughly triples the risk of dry socket</li>
+      <li>Don't poke the site with your tongue, finger, or toothpick</li>
+    </ul>
+
+    <h3 class="sub">Control bleeding</h3>
+    <p>Bite firmly on the gauze we gave you for 30–45 minutes. Some oozing and pink-tinged saliva for the first day is normal.</p>
+    <div class="callout tip">
+      <div class="callout-icon">💡</div>
+      <div><strong>If bleeding restarts:</strong> fold a fresh gauze pad (or a damp black tea bag — the tannins help clotting), place it directly on the socket, and bite firmly without checking for 30 minutes. Keep your head elevated.</div>
+    </div>
+
+    <h3 class="sub">Ice for swelling</h3>
+    <ul class="clean">
+      <li>20 minutes on, 20 minutes off, for the first 24 hours</li>
+      <li>Peak swelling is at 48–72 hours — not the day of surgery. This is normal.</li>
+      <li>After 48 hours, switch to warm moist compresses to help swelling go down</li>
+    </ul>
+
+    <h3 class="sub">Eat soft, cool foods</h3>
+    <div class="two-col">
+      <div class="col-card">
+        <h3>Good choices</h3>
+        <ul class="clean check">
+          <li>Yogurt, cottage cheese, pudding</li>
+          <li>Smoothies (spoon, no straw)</li>
+          <li>Mashed potatoes, applesauce</li>
+          <li>Scrambled eggs, soft pasta</li>
+          <li>Lukewarm soup, broth</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h3>Avoid for the first few days</h3>
+        <ul class="clean cross">
+          <li>Hot temperatures (can restart bleeding)</li>
+          <li>Hard, crunchy, chewy, or sharp foods</li>
+          <li>Chips, nuts, popcorn, crusty bread</li>
+          <li>Carbonated and alcoholic drinks</li>
+          <li>Chewing directly on the surgical side</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub">Rest</h3>
+    <p style="margin-bottom: 0;">Take the rest of the day off. No work, school, or exercise. Avoid heavy lifting or strenuous activity for 48–72 hours — increased blood pressure can restart bleeding. Sleep with your head slightly elevated (an extra pillow) the first night.</p>
+  </section>
+
+  <!-- Section 2: Pain & Swelling -->
+  <section>
+    <h2><span class="num">2</span> Pain &amp; swelling</h2>
+    <p class="section-lead">Discomfort usually peaks at 48–72 hours, then tapers quickly. A combination of <strong>ibuprofen + acetaminophen</strong> is as effective as prescription opioids for most dental pain — and safer. See your <strong>Medication Guide</strong> for exact dosing.</p>
+    <ul class="clean">
+      <li>Start your pain medication <em>before</em> the numbness wears off</li>
+      <li>Take ibuprofen with food to protect your stomach</li>
+      <li>Stay ahead of pain — use scheduled doses for the first 2 days rather than waiting</li>
+      <li>If an opioid was prescribed, only take it if ibuprofen + acetaminophen isn't enough</li>
+    </ul>
+  </section>
+
+  <footer class="doc-footer">
+    <div>Extraction Recovery Guide</div>
+    <div class="page-num">Page 1 of 2 · Turn over</div>
+  </footer>
+</article>
+
+<!-- ========== PAGE 2 ========== -->
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title" style="font-size: 22px;">Days 2 through 7 and beyond</h1>
+      <div class="doc-subtitle">Extraction Recovery · continued</div>
+    </div>
+    <div class="doc-meta">
+      Page 2 of 2
+    </div>
+  </header>
+
+  <!-- Section 3: Days 2-7 -->
+  <section>
+    <h2><span class="num">3</span> Days 2 through 7</h2>
+
+    <h3 class="sub">Start saltwater rinses tomorrow</h3>
+    <p>Mix ½ teaspoon of salt in 8 oz of warm water. Rinse gently 3–4 times a day, especially after meals. <strong>Let the water fall out of your mouth</strong> rather than forcefully spitting. Continue for 1–2 weeks.</p>
+    <div class="callout info">
+      <div class="callout-icon">ℹ</div>
+      <div>If you were prescribed a <strong>chlorhexidine rinse</strong> (Peridex, Paradex, Periogard), use it twice daily as directed, and use saltwater the rest of the day. Avoid eating or drinking for 30 minutes after rinsing.</div>
+    </div>
+
+    <h3 class="sub">Oral hygiene</h3>
+    <ul class="clean">
+      <li>Brush the rest of your teeth normally starting the day after surgery</li>
+      <li>Avoid the extraction site directly for the first 3 days</li>
+      <li>After day 3, a soft toothbrush can gently clean near (but not in) the site</li>
+      <li>Keep flossing everywhere except right next to the surgical area</li>
+    </ul>
+
+    <h3 class="sub">What's normal vs. what's not</h3>
+    <div class="compare">
+      <div class="compare-col">
+        <h3>Normal (expected)</h3>
+        <ul class="clean check">
+          <li>Swelling peaking at 48–72h, then improving</li>
+          <li>Mild bruising of cheek or jaw</li>
+          <li>Yellow or whitish tissue in the socket (healing, not pus)</li>
+          <li>Slight bad taste or smell for a few days</li>
+          <li>Stiff jaw that slowly improves</li>
+          <li>Sensitivity in neighboring teeth</li>
+          <li>Slightly altered or "less sharp" sensation in lip, chin, or tongue that's gradually improving</li>
+        </ul>
+      </div>
+      <div class="compare-col">
+        <h3>Call our office</h3>
+        <ul class="clean cross">
+          <li>Severe pain on day 3–5 that medication doesn't touch at all (possible dry socket)</li>
+          <li>Pain, swelling, or bad taste that returns <em>after</em> you'd started to feel better (possible infection)</li>
+          <li>Bleeding that won't stop after 30–45 min of firm pressure</li>
+          <li>Fever over 101°F</li>
+          <li>Complete numbness (like dental freezing) in lip, chin, or tongue still present after 2 days</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-icon">💡</div>
+      <div><strong>Is it dry socket?</strong> Here's a simple test. If your pain medication brings pain down to a manageable level (around <strong>2 or 3 out of 10</strong>), it's <em>not</em> dry socket — you're on a normal healing curve. If the medication does <strong>nothing at all</strong> — the pain stays severe no matter what you take — that's the hallmark of dry socket. Call us; it's easily treated with a medicated dressing that brings fast relief.</div>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-icon">💡</div>
+      <div><strong>Is it an infection?</strong> Watch the <em>direction</em> of your pain, not just how much it hurts. Days 2–4 are usually the peak. After that, each day should be a little better than the last. If you were feeling better and then the pain, swelling, or a bad taste suddenly comes back, that's the classic pattern for an infection. Call us.</div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">ℹ</div>
+      <div><strong>Why do these happen?</strong> Dry socket and infection are the most common complications we see — about <strong>5–12% of cases combined</strong> — and both are usually straightforward to treat. The mouth isn't sterile the way skin is. Unlike a cut on your arm, we can't scrub the site clean of bacteria before surgery — they're everywhere in the mouth. Even with sterile instruments and careful technique, some patients still develop one. The risk is higher if the tooth was already infected before we removed it.</div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">ℹ</div>
+      <div><strong>About nerve sensation:</strong> It's common for the lip, chin, or tongue to feel a little "off" or less sharp for a day or two after some extractions — this is usually from the nerve being bruised, and it almost always fully recovers on its own. What we want to know about is <strong>complete numbness</strong> (the feeling of still being frozen from dental anesthetic) that lasts more than 2 days.</div>
+    </div>
+
+    <h3 class="sub">Sutures</h3>
+    <p style="margin-bottom: 0;">If dissolvable sutures were placed, they'll fall out on their own over 7–14 days. If non-dissolvable sutures were placed, you'll come back for removal — typically 7–10 days after your procedure.</p>
+  </section>
+
+  <!-- Section 4: Bone graft -->
+  <div class="graft-panel">
+    <span class="graft-label">Only if you had a bone graft</span>
+    <h2 style="color: var(--ink); display: block; margin-top: 0.3rem;">Your bone graft</h2>
+    <p class="section-lead">A graft was placed to preserve the bone shape for a future implant, bridge, or denture fit. A few things to expect:</p>
+    <ul class="clean" style="margin-bottom: 0;">
+      <li>You may see small whitish-gray particles — this is graft material. <strong>Do not pick at them.</strong></li>
+      <li>A few grain-like bits in your saliva over the first few days is normal. Some loss is expected — you don't need to save them.</li>
+      <li><strong>Don't probe with your tongue.</strong> Pressure can shift the graft before it integrates.</li>
+      <li>If you see a soft membrane at the site, or part of it comes loose, it's <em>not</em> an emergency. Call us and we'll check it at your follow-up.</li>
+      <li>Full bone healing takes <strong>3–4 months</strong> before the site is ready for an implant or other restoration.</li>
+      <li>If you wear a denture or partial that covers this area, <strong>don't wear it until we adjust it</strong> — pressure can disturb the graft.</li>
+    </ul>
+  </div>
+
+  <!-- Alveoplasty panel -->
+  <div class="graft-panel" style="margin-top: 0.8rem;">
+    <span class="graft-label">Only if the bone was smoothed (alveoplasty)</span>
+    <h2 style="color: var(--ink); display: block; margin-top: 0.3rem;">Bone smoothing (alveoplasty)</h2>
+    <p class="section-lead">Alongside your extraction, we reshaped the bone underneath — smoothing sharp edges or high points — so the area will be comfortable and ready for a future denture, partial, or implant. This adds a little to your recovery:</p>
+    <ul class="clean" style="margin-bottom: 0;">
+      <li>Expect <strong>slightly more swelling and soreness</strong> than a routine extraction for the first 2–3 days.</li>
+      <li>You may feel a small, sharp bony edge under the gum as it heals — usually this smooths out on its own as tissue and bone remodel over several weeks.</li>
+      <li>If a small sharp piece (a "bone spicule") works its way through the gum weeks later, don't worry — it's a normal part of healing. Call us and we'll remove it quickly if it bothers you.</li>
+      <li>Full bone remodeling takes 2–3 months.</li>
+    </ul>
+  </div>
+
+  <!-- Section 5: Other things -->
+  <section style="margin-top: 1rem;">
+    <h2><span class="num">5</span> Other things that may help</h2>
+    <p class="section-lead">A few evidence-backed additions that support recovery:</p>
+    <ul class="clean">
+      <li><strong>Bromelain</strong> (500 mg, 3× daily, 5–7 days) — a pineapple-derived enzyme with research support for reducing swelling and speeding recovery after oral surgery. <em>Skip if you take a blood thinner, have a bleeding disorder, or are allergic to pineapple.</em></li>
+      <li><strong>Sleep</strong> — 7+ hours a night the first week. Sleep loss measurably slows healing.</li>
+      <li><strong>Protein</strong> — aim for 80–100g daily. Soft options: Greek yogurt, cottage cheese, eggs, protein smoothies (spoon only), soft fish.</li>
+      <li><strong>Hydration</strong> — plenty of water. Not sugary drinks, not alcohol.</li>
+      <li><strong>No nicotine</strong> — smoking, vaping, and nicotine pouches all slow healing and raise the risk of dry socket. The longer you can stay off, the better.</li>
+      <li><strong>No alcohol for at least 72 hours</strong> — interacts with medications and slows healing.</li>
+    </ul>
+    <div class="callout info" style="margin-top: 0.45rem;">
+      <div class="callout-icon">ℹ</div>
+      <div>Supplements not on this list (arnica, megadose vitamin C, "immune boosters," CBD) don't have strong evidence for healing after oral surgery. Save your money.</div>
+    </div>
+  </section>
+
+  <!-- Section 6: Call us -->
+  <section>
+    <div class="call-box">
+      <h3>When to call us</h3>
+      <ul class="clean call-list">
+        <li>Severe pain on day 3–5 that your medication doesn't help at all (possible dry socket)</li>
+        <li>Pain, swelling, or bad taste that returns after you'd started to feel better (possible infection)</li>
+        <li>Heavy bleeding that won't stop after 30–45 min of firm gauze pressure</li>
+        <li>Swelling spreading to your neck or around your eye</li>
+        <li>Fever over 101°F</li>
+        <li>Complete numbness in lip, chin, or tongue (like dental freezing) still present after 2 days</li>
+        <li>Jaw stiffness getting worse (not better) after day 5</li>
+      </ul>
+      <h4 class="emergency">Urgent — don't wait</h4>
+      <ul class="clean call-list">
+        <li>Difficulty breathing or swallowing</li>
+        <li>Rapidly spreading swelling to your neck, under your tongue, or around your eye</li>
+      </ul>
+      <p style="font-size: 10.5px; color: var(--ink-soft); margin-top: 0.55rem; margin-bottom: 0;">Call our office right away for the on-call provider. If you truly cannot breathe or swallow, call 911.</p>
+    </div>
+  </section>
+
+  <div class="questions">
+    Most calls are easy to resolve. If you're unsure whether something is normal, call us — we'd rather answer than have you worry about it.
+  </div>
+
+  <footer class="doc-footer">
+    <div>Extraction Recovery Guide</div>
+    <div class="page-num">Page 2 of 2</div>
+  </footer>
+</article>
+
+</body>
+</html>

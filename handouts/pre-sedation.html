@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Before Your Sedation Appointment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2733;
+    --ink-soft: #4a5a6b;
+    --ink-light: #7a8a9b;
+    --paper: #fdfcf9;
+    --cream: #f6f1e8;
+    --teal: #2a5f6f;
+    --teal-soft: #e6eff1;
+    --amber: #b8691f;
+    --amber-soft: #fdf3e6;
+    --sage: #4a7c59;
+    --sage-soft: #edf3ee;
+    --rule: #e5ddd0;
+    --rule-strong: #c9bfae;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e8e4db;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    padding: 2rem 1rem;
+  }
+
+  .page {
+    background: var(--paper);
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 2rem;
+    padding: 0.6in 0.65in;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+  .doc-header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+
+  .doc-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .doc-subtitle {
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 0.4rem;
+  }
+
+  .doc-meta {
+    font-size: 10px;
+    color: var(--ink-light);
+    text-align: right;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  /* Intro */
+  .intro {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 6.5in;
+    margin-bottom: 1.3rem;
+  }
+
+  /* Timeline */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    margin-bottom: 1.4rem;
+    background: var(--cream);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .timeline-step {
+    padding: 0.7rem 0.6rem;
+    border-right: 1px solid var(--rule-strong);
+    position: relative;
+  }
+
+  .timeline-step:last-child { border-right: none; }
+
+  .timeline-when {
+    font-size: 9.5px;
+    font-weight: 600;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 3px;
+  }
+
+  .timeline-what {
+    font-size: 11px;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+
+  /* Sections */
+  section {
+    margin-bottom: 1.1rem;
+  }
+
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    letter-spacing: -0.005em;
+  }
+
+  h2 .num {
+    font-family: 'Inter', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: var(--teal);
+    color: white;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  p, li {
+    font-size: 12px;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+
+  p { margin-bottom: 0.5rem; }
+
+  .section-lead {
+    color: var(--ink-soft);
+    margin-bottom: 0.6rem;
+  }
+
+  /* NPO Table */
+  .npo-table {
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 0.4rem;
+  }
+
+  .npo-row {
+    display: grid;
+    grid-template-columns: 1.4fr 2.6fr;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .npo-row:last-child { border-bottom: none; }
+
+  .npo-row.header {
+    background: var(--teal-soft);
+  }
+
+  .npo-cell {
+    padding: 0.55rem 0.75rem;
+    font-size: 11.5px;
+    border-right: 1px solid var(--rule);
+  }
+
+  .npo-cell:last-child { border-right: none; }
+
+  .npo-cell.label {
+    font-weight: 600;
+    color: var(--teal);
+  }
+
+  .npo-row.header .npo-cell {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+  }
+
+  .npo-row.critical {
+    background: var(--amber-soft);
+  }
+
+  .npo-row.critical .npo-cell.label {
+    color: var(--amber);
+  }
+
+  /* Info callout */
+  .callout {
+    padding: 0.65rem 0.8rem;
+    border-radius: 5px;
+    font-size: 11px;
+    line-height: 1.55;
+    margin-top: 0.6rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .callout.warn {
+    background: var(--amber-soft);
+    border-left: 3px solid var(--amber);
+    color: #5a3410;
+  }
+
+  .callout.info {
+    background: var(--teal-soft);
+    border-left: 3px solid var(--teal);
+    color: #1a3a42;
+  }
+
+  .callout strong { color: inherit; }
+
+  .callout-icon {
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Two column layouts */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+  }
+
+  .col-card {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .col-card h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Lists */
+  ul.clean {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul.clean li {
+    padding: 0.22rem 0 0.22rem 1.15rem;
+    position: relative;
+    font-size: 11.5px;
+  }
+
+  ul.clean li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 4px;
+    height: 4px;
+    background: var(--teal);
+    border-radius: 50%;
+  }
+
+  ul.check li:before {
+    content: "✓";
+    background: none;
+    color: var(--sage);
+    font-weight: 700;
+    top: 0.22rem;
+    width: auto;
+    height: auto;
+    font-size: 11px;
+  }
+
+  ul.cross li:before {
+    content: "✕";
+    background: none;
+    color: var(--amber);
+    font-weight: 600;
+    top: 0.22rem;
+    width: auto;
+    height: auto;
+    font-size: 11px;
+  }
+
+  /* Recovery do/don't grid */
+  .recovery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-top: 0.4rem;
+  }
+
+  .recovery-card {
+    padding: 0.7rem 0.85rem;
+    border-radius: 6px;
+  }
+
+  .recovery-card.dont {
+    background: var(--amber-soft);
+    border: 1px solid #f0d4b0;
+  }
+
+  .recovery-card.do {
+    background: var(--sage-soft);
+    border: 1px solid #d4e0d8;
+  }
+
+  .recovery-card h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.45rem;
+  }
+
+  .recovery-card.dont h3 { color: var(--amber); }
+  .recovery-card.do h3 { color: var(--sage); }
+
+  /* Call us section */
+  .call-box {
+    border: 1.5px solid var(--teal);
+    border-radius: 7px;
+    padding: 0.85rem 1rem;
+    background: var(--paper);
+    margin-top: 0.6rem;
+  }
+
+  .call-box h3 {
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .call-list {
+    columns: 2;
+    column-gap: 1.5rem;
+  }
+
+  .call-list li {
+    font-size: 11px;
+    padding: 0.18rem 0 0.18rem 0.9rem;
+    break-inside: avoid;
+  }
+
+  /* Footer */
+  .doc-footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 0.7rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9.5px;
+    color: var(--ink-light);
+    letter-spacing: 0.02em;
+  }
+
+  .page-num {
+    font-weight: 600;
+    color: var(--teal);
+  }
+
+  /* Questions box */
+  .questions {
+    margin-top: 0.6rem;
+    padding: 0.7rem 0.85rem;
+    background: var(--cream);
+    border-radius: 5px;
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  /* Print */
+  @media print {
+    @page {
+      size: letter;
+      margin: 0;
+    }
+    body {
+      background: white;
+      padding: 0;
+    }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      padding: 0.55in 0.65in;
+      page-break-after: always;
+      min-height: 11in;
+    }
+    .page:last-child {
+      page-break-after: auto;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== PAGE 1 ========== -->
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title">Before your sedation appointment</h1>
+      <div class="doc-subtitle">IV Moderate Sedation · Patient Guide</div>
+    </div>
+    <div class="doc-meta">
+      Please read fully<br>
+      Call our office with any questions
+    </div>
+  </header>
+
+  <p class="intro">
+    You're scheduled for a procedure with IV sedation. A small IV in your arm will deliver medication that keeps you relaxed and comfortable. Most people don't remember much of the appointment afterward. This guide will help you prepare safely — the most important parts are on this page.
+  </p>
+
+  <!-- Timeline -->
+  <div class="timeline">
+    <div class="timeline-step">
+      <div class="timeline-when">2 days before</div>
+      <div class="timeline-what">Start your antibiotic &amp; Peridex rinse, if prescribed.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Day before</div>
+      <div class="timeline-what">No alcohol. Stop bleeding-risk supplements.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">8 hours before</div>
+      <div class="timeline-what">Nothing to eat or drink. Count back from your appointment time.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">1 hour before</div>
+      <div class="timeline-what">Triazolam, if prescribed. Approved meds. Small sip of water only.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Day of</div>
+      <div class="timeline-what">Arrive with your escort. Loose clothes.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">After</div>
+      <div class="timeline-what">24h supervision · 24h no driving.</div>
+    </div>
+  </div>
+
+  <!-- NPO -->
+  <section>
+    <h2><span class="num">1</span> Eating &amp; drinking</h2>
+    <p class="section-lead">An empty stomach keeps you safe during sedation. The rule is <strong>eight hours</strong> — count back from your appointment time and stop then. Please follow this exactly.</p>
+
+    <div class="npo-table">
+      <div class="npo-row header">
+        <div class="npo-cell">When</div>
+        <div class="npo-cell">What's allowed</div>
+      </div>
+      <div class="npo-row">
+        <div class="npo-cell label">Your last meal</div>
+        <div class="npo-cell">Eat a normal, light meal before your eight-hour window starts. Avoid heavy, fatty, or fried foods.</div>
+      </div>
+      <div class="npo-row critical">
+        <div class="npo-cell label">8 hours before</div>
+        <div class="npo-cell"><strong>Nothing to eat or drink.</strong> No food, no water, no coffee, no gum, no mints, no candy.</div>
+      </div>
+      <div class="npo-row">
+        <div class="npo-cell label">1 hour before</div>
+        <div class="npo-cell">You may take your approved medications, and your triazolam if prescribed, with a <em>small</em> sip of water — no more than a teaspoon. This does not break your fast.</div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-icon">⚠</div>
+      <div><strong>If you accidentally eat or drink inside your eight-hour window, call us before coming in.</strong> We may need to reschedule. This rule exists because food or liquid in your stomach can enter your lungs under sedation — rare, but serious.</div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">ℹ</div>
+      <div><strong>How to count your eight hours.</strong> For an <strong>8:00 am</strong> appointment, that means nothing after <strong>midnight</strong>. For a <strong>4:00 pm</strong> appointment, nothing after <strong>8:00 am</strong> — you do not need to fast from midnight. If you're not sure, call us.</div>
+    </div>
+  </section>
+
+  <!-- Medications -->
+  <section>
+    <h2><span class="num">2</span> Medications &amp; supplements</h2>
+    <p class="section-lead">Follow these unless we gave you different directions at your consultation.</p>
+
+    <div class="two-col">
+      <div class="col-card">
+        <h3>Take the morning of</h3>
+        <ul class="clean">
+          <li>Blood pressure medications — with a small sip of water</li>
+          <li>Heart, seizure, thyroid, and most daily prescriptions</li>
+          <li>Inhalers if you use them</li>
+          <li>If prescribed: your antibiotic and Peridex (chlorhexidine) rinse, started 2 days before surgery — take the antibiotic as directed and rinse morning and night</li>
+          <li>If prescribed: <strong>triazolam</strong> — swallow one tablet <strong>one hour before</strong> your appointment with a small sip of water. It eases nerves but is not required. If you forget it, that's okay: it will not affect your sedation and your surgery goes ahead as planned.</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h3>Hold the morning of</h3>
+        <ul class="clean">
+          <li>Diabetes medications — contact <strong>our office</strong> for instructions before your appointment; some (Jardiance, Farxiga, Invokana, Steglatro) must be stopped 3–4 days ahead</li>
+          <li>Any medication we specifically told you to stop</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="margin-top: 0.6rem;"><strong>Stop 3–5 days before (if your prescriber approves):</strong> fish oil, vitamin E, garlic pills, ginkgo, turmeric/curcumin, bromelain, high-dose ginger. These can increase bleeding.</p>
+
+    <div class="callout info">
+      <div class="callout-icon">ℹ</div>
+      <div><strong>Never stop prescription blood thinners on your own.</strong> If you take warfarin, Eliquis, Xarelto, Plavix, or similar, we'll coordinate with your prescribing doctor.</div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">ℹ</div>
+      <div><strong>Taking a GLP-1 medication such as Ozempic, Wegovy, Mounjaro, or Zepbound?</strong> Keep taking it as prescribed and tell our office before your appointment. Our office policy for all patients on these medications: clear liquids only (no solid food) for the 24 hours before your 8-hour fasting window begins.</div>
+    </div>
+  </section>
+
+  <!-- Avoid 24h before -->
+  <section>
+    <h2><span class="num">3</span> The days before your appointment</h2>
+    <ul class="clean cross">
+      <li>No marijuana/cannabis in any form, and no smoking or vaping <em>anything</em>, for <strong>72 hours</strong> before your appointment — this is our office policy for elective sedation, and it protects your airway and heart</li>
+      <li>No other recreational drugs for 72 hours before</li>
+      <li>No alcohol for 24 hours before — it interacts with sedation medications</li>
+      <li>Let us know right away if you develop a cold, cough, fever, sore throat, or flu</li>
+      <li>If there's any chance you could be pregnant, please tell us before we start</li>
+    </ul>
+  </section>
+
+  <footer class="doc-footer">
+    <div>Pre-Sedation Patient Guide</div>
+    <div class="page-num">Page 1 of 2 · Turn over</div>
+  </footer>
+</article>
+
+<!-- ========== PAGE 2 ========== -->
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title" style="font-size: 22px;">Getting you home safely &amp; recovery</h1>
+      <div class="doc-subtitle">IV Moderate Sedation · continued</div>
+    </div>
+    <div class="doc-meta">
+      Page 2 of 2
+    </div>
+  </header>
+
+  <!-- Driver -->
+  <section>
+    <h2><span class="num">4</span> Your escort &amp; the adult with you after</h2>
+    <p class="section-lead">A responsible adult (18 or older) must come with you, stay, and take you home. This is required — we can't begin your sedation without it. It's the escort, not the car, that keeps you safe: riding home together in a taxi or rideshare is fine.</p>
+
+    <div class="two-col">
+      <div class="col-card">
+        <h3>What your escort needs to do</h3>
+        <ul class="clean">
+          <li>Come inside with you at check-in</li>
+          <li>Stay in the office during your procedure — no exceptions</li>
+          <li>Take you directly home — driving you themselves, or riding with you in a taxi or rideshare</li>
+          <li>Stay with you for <strong>the rest of the day and overnight (24 hours)</strong> after discharge</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h3>What doesn't work</h3>
+        <ul class="clean">
+          <li>Uber, Lyft, taxi, or bus on your own</li>
+          <li>Walking or biking home</li>
+          <li>Anyone who only drops you off or only picks you up — your escort comes in with you, stays, and goes home with you</li>
+          <li>Driving yourself — not for 24 hours after sedation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- What to wear and bring -->
+  <section>
+    <h2><span class="num">5</span> What to wear &amp; bring</h2>
+    <div class="two-col">
+      <div class="col-card">
+        <h3>Wear</h3>
+        <ul class="clean check">
+          <li>Short sleeves, or sleeves that roll above the elbow (for the IV)</li>
+          <li>Loose, comfortable clothing</li>
+          <li>Flat, closed-toe shoes</li>
+          <li>Glasses instead of contact lenses</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h3>Skip or remove</h3>
+        <ul class="clean cross">
+          <li>Makeup, lipstick, lip balm</li>
+          <li>Nail polish or acrylics on at least one finger (we monitor oxygen through your fingertip)</li>
+          <li>Jewelry, especially piercings</li>
+          <li>Heavy perfume or cologne</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top: 0.55rem;"><strong>Bring:</strong> photo ID, insurance card, a current list of your medications (with doses), and your escort.</p>
+  </section>
+
+  <!-- After procedure -->
+  <section>
+    <h2><span class="num">6</span> After your procedure</h2>
+    <p class="section-lead">Sedation medication stays in your body longer than you feel it. Even if you feel fine, your judgment and reflexes are not back to normal for a full day.</p>
+
+    <div class="two-col" style="margin-bottom: 0.55rem;">
+      <div class="col-card" style="background: var(--teal-soft);">
+        <h3 style="color: var(--teal);">First 24 hours · Have an adult with you</h3>
+        <ul class="clean">
+          <li>Rest quietly at home</li>
+          <li>Someone must stay with you — don't be alone</li>
+          <li>Sip water and eat light foods as your stomach allows</li>
+          <li>Take your pain medication as directed</li>
+          <li>Follow the post-op instructions for your specific procedure</li>
+        </ul>
+      </div>
+      <div class="col-card" style="background: var(--amber-soft);">
+        <h3 style="color: var(--amber);">First 24 hours · Do not</h3>
+        <ul class="clean cross">
+          <li>Drive a car or operate machinery</li>
+          <li>Return to work, school, or exercise</li>
+          <li>Sign contracts or make important decisions</li>
+          <li>Drink alcohol, use cannabis, or take medications we didn't approve</li>
+          <li>Care for children or pets on your own</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">ℹ</div>
+      <div>It's completely normal to feel drowsy, slightly nauseated, or a bit wobbly for several hours. Many people don't remember parts of the day — this is expected and will not come back.</div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">&#8505;</div>
+      <div><strong>Breastfeeding?</strong> You may resume nursing as soon as you are awake, stable, and alert — there is no need to pump and discard milk (American Society of Anesthesiologists &amp; Academy of Breastfeeding Medicine guidance). For a newborn, preterm, or medically fragile infant, ask your pediatrician whether a brief 6–12 hour pause is prudent.</div>
+    </div>
+  </section>
+
+  <!-- Call us -->
+  <section>
+    <div class="call-box">
+      <h3>Call our office if…</h3>
+      <ul class="clean call-list">
+        <li>You develop a cold, flu, fever, or sore throat before your appointment</li>
+        <li>You accidentally ate or drank inside the NPO window</li>
+        <li>Your escort arrangement falls through</li>
+        <li>You're unsure about any of your medications</li>
+        <li>You could be pregnant</li>
+        <li>After your procedure: heavy bleeding that won't stop, trouble breathing, chest pain, severe pain not controlled by medication, or fever over 101°F</li>
+      </ul>
+      <p style="font-size: 10.5px; color: var(--ink-soft); margin-top: 0.55rem; margin-bottom: 0;">After hours, call our office and follow the instructions to reach the on-call provider. If you truly cannot breathe or have chest pain, call 911.</p>
+    </div>
+  </section>
+
+  <div class="questions">
+    We'd rather answer a question before your appointment than have you worry about it. If anything here is unclear — especially about medications, eating, or your escort — please call our office.
+  </div>
+
+  <footer class="doc-footer">
+    <div>Pre-Sedation Patient Guide</div>
+    <div class="page-num">Page 2 of 2</div>
+  </footer>
+</article>
+
+</body>
+</html>

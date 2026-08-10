@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>After Your Frenectomy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2733;
+    --ink-soft: #4a5a6b;
+    --ink-light: #7a8a9b;
+    --paper: #fdfcf9;
+    --cream: #f6f1e8;
+    --teal: #2a5f6f;
+    --teal-soft: #e6eff1;
+    --amber: #b8691f;
+    --amber-soft: #fdf3e6;
+    --sage: #4a7c59;
+    --sage-soft: #edf3ee;
+    --rule: #e5ddd0;
+    --rule-strong: #c9bfae;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e8e4db;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body { padding: 2rem 1rem; }
+
+  .page {
+    background: var(--paper);
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 2rem;
+    padding: 0.6in 0.65in;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .doc-header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+
+  .doc-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .doc-subtitle {
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 0.4rem;
+  }
+
+  .doc-meta {
+    font-size: 10px;
+    color: var(--ink-light);
+    text-align: right;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  .intro {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 6.5in;
+    margin-bottom: 1.1rem;
+  }
+
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 1.2rem;
+    background: var(--cream);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .timeline-step {
+    padding: 0.7rem 0.6rem;
+    border-right: 1px solid var(--rule-strong);
+  }
+
+  .timeline-step:last-child { border-right: none; }
+
+  .timeline-when {
+    font-size: 9.5px;
+    font-weight: 600;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 3px;
+  }
+
+  .timeline-what {
+    font-size: 11px;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+
+  section { margin-bottom: 1rem; }
+
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    letter-spacing: -0.005em;
+  }
+
+  h2 .num {
+    font-family: 'Inter', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: var(--teal);
+    color: white;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  h3.sub {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.7rem;
+    margin-bottom: 0.35rem;
+  }
+
+  h3.sub:first-child { margin-top: 0; }
+
+  p, li { font-size: 12px; color: var(--ink); line-height: 1.55; }
+  p { margin-bottom: 0.45rem; }
+
+  .section-lead { color: var(--ink-soft); margin-bottom: 0.55rem; }
+
+  .callout {
+    padding: 0.65rem 0.8rem;
+    border-radius: 5px;
+    font-size: 11px;
+    line-height: 1.55;
+    margin-top: 0.55rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .callout.warn { background: var(--amber-soft); border-left: 3px solid var(--amber); color: #5a3410; }
+  .callout.info { background: var(--teal-soft); border-left: 3px solid var(--teal); color: #1a3a42; }
+  .callout.tip { background: var(--sage-soft); border-left: 3px solid var(--sage); color: #2a4a33; }
+
+  .callout-icon { flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+
+  .stretches-box {
+    background: linear-gradient(to right, var(--teal), #1e4b58);
+    color: white;
+    border-radius: 7px;
+    padding: 0.9rem 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.95rem;
+  }
+
+  .stretches-box h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: white;
+  }
+
+  .stretches-box p {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 11.5px;
+    line-height: 1.55;
+    margin-bottom: 0.5rem;
+  }
+
+  .stretches-box p:last-child { margin-bottom: 0; }
+
+  .stretches-box strong { color: white; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-top: 0.4rem;
+  }
+
+  .col-card {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .col-card h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    margin-bottom: 0.45rem;
+  }
+
+  ul.clean { list-style: none; padding: 0; }
+
+  ul.clean li {
+    padding: 0.2rem 0 0.2rem 1.1rem;
+    position: relative;
+    font-size: 11.5px;
+  }
+
+  ul.clean li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.58rem;
+    width: 4px;
+    height: 4px;
+    background: var(--teal);
+    border-radius: 50%;
+  }
+
+  ul.cross li:before {
+    content: "✕";
+    background: none;
+    color: var(--amber);
+    font-weight: 600;
+    top: 0.2rem; width: auto; height: auto; font-size: 11px;
+  }
+
+  ul.check li:before {
+    content: "✓";
+    background: none;
+    color: var(--sage);
+    font-weight: 700;
+    top: 0.2rem; width: auto; height: auto; font-size: 11px;
+  }
+
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 0.4rem;
+  }
+
+  .compare-col { padding: 0.65rem 0.8rem; }
+
+  .compare-col:first-child {
+    border-right: 1px solid var(--rule);
+    background: var(--sage-soft);
+  }
+
+  .compare-col:last-child { background: var(--amber-soft); }
+
+  .compare h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+
+  .compare-col:first-child h3 { color: var(--sage); }
+  .compare-col:last-child h3 { color: var(--amber); }
+
+  .compare ul.clean li { font-size: 11px; padding: 0.15rem 0 0.15rem 0.9rem; }
+
+  .call-box {
+    border: 1.5px solid var(--teal);
+    border-radius: 7px;
+    padding: 0.85rem 1rem;
+    background: var(--paper);
+    margin-top: 0.5rem;
+  }
+
+  .call-box h3 {
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+  }
+
+  .call-box h4 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    margin-top: 0.6rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .call-box .emergency { color: #a21b1b; }
+
+  .call-list li { font-size: 11px; padding: 0.16rem 0 0.16rem 0.9rem; }
+
+  .doc-footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 0.65rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9.5px;
+    color: var(--ink-light);
+    letter-spacing: 0.02em;
+  }
+
+  .page-num { font-weight: 600; color: var(--teal); }
+
+  strong { color: var(--ink); }
+
+  @media print {
+    @page { size: letter; margin: 0; }
+    body { background: white; padding: 0; }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      padding: 0.55in 0.65in;
+      min-height: 11in;
+    }
+  }
+</style>
+</head>
+<body>
+
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title">After your frenectomy</h1>
+      <div class="doc-subtitle">Recovery Guide · Lip, tongue, or cheek tie release</div>
+    </div>
+    <div class="doc-meta">
+      Keep this guide handy<br>
+      Call our office with any questions
+    </div>
+  </header>
+
+  <p class="intro">
+    A small band of tissue (the frenum) was released to improve movement of your lip, tongue, or cheek. The area is small, and most patients heal quickly — usually within 1–2 weeks. The most important thing for a good result is doing gentle stretches so the tissue doesn't reattach as it heals.
+  </p>
+
+  <div class="timeline">
+    <div class="timeline-step">
+      <div class="timeline-when">Today</div>
+      <div class="timeline-what">Mild soreness. Cool, soft foods. Begin stretches as instructed.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Days 1–3</div>
+      <div class="timeline-what">Yellow/white patch appears at the site. Continue stretches.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Days 4–14</div>
+      <div class="timeline-what">Soreness fades. Patch slowly goes away. Keep stretching.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Weeks 3–6</div>
+      <div class="timeline-what">Tissue fully remodels. Full range of motion.</div>
+    </div>
+  </div>
+
+  <div class="stretches-box">
+    <h3>Stretches are the key to a good result</h3>
+    <p>As the area heals, the tissue naturally wants to reconnect — which can undo the release. <strong>Gentle stretches several times a day keep the area open while it remodels.</strong> You'll start these either the day of surgery or the day after, depending on what we told you at your visit.</p>
+    <p><strong>How often:</strong> 4–6 times a day for the first 2 weeks, then taper over weeks 3–4. <strong>How long:</strong> Hold each stretch for 1–2 seconds. A short "ouch" moment is okay — sustained pain is not. Do not skip, even if it feels sore.</p>
+  </div>
+
+  <section>
+    <h2><span class="num">1</span> How to do the stretches</h2>
+    <p class="section-lead">We'll show you the specific technique for your type of release. The general idea is gentle, consistent movement to keep the wound from reattaching.</p>
+
+    <div class="two-col">
+      <div class="col-card">
+        <h3>Upper lip tie</h3>
+        <ul class="clean">
+          <li>Use a clean finger under the upper lip</li>
+          <li>Gently lift the lip straight up toward the nose</li>
+          <li>Hold for 1–2 seconds, release</li>
+          <li>Repeat 4–6 times per session</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h3>Tongue tie</h3>
+        <ul class="clean">
+          <li>Use a clean finger to lift the tongue up and back</li>
+          <li>Exposing the diamond-shaped wound under the tongue</li>
+          <li>Hold for 1–2 seconds, release</li>
+          <li>Repeat 4–6 times per session</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">ℹ</div>
+      <div><strong>For babies and small children:</strong> do stretches when they're calm or sleepy — not mid-feed or mid-cry. Wash your hands first. A little fussiness is expected; it passes in under a minute.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span> Pain, bleeding &amp; what's normal</h2>
+
+    <h3 class="sub">Pain</h3>
+    <p>Most patients need little to no pain medication. For adults, <strong>ibuprofen + acetaminophen</strong> as needed is plenty. For children, age-appropriate doses of children's ibuprofen or acetaminophen. See your <strong>Medication Guide</strong> for dosing.</p>
+
+    <h3 class="sub">Bleeding</h3>
+    <p>A few drops of blood for the first hour is normal. If bleeding restarts, apply gentle pressure with a clean damp gauze for 5–10 minutes.</p>
+
+    <h3 class="sub">The white or yellow patch</h3>
+    <p style="margin-bottom: 0;">Within a day or two, a white, yellow, or gray patch will form at the release site. <strong>This is normal healing tissue — it is not pus or infection.</strong> It gradually shrinks and disappears over 1–2 weeks. Many parents are alarmed by this; nothing to worry about.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span> Eating &amp; drinking</h2>
+    <div class="two-col">
+      <div class="col-card">
+        <h3>Good choices</h3>
+        <ul class="clean check">
+          <li>Cool or room-temperature foods</li>
+          <li>Yogurt, pudding, applesauce</li>
+          <li>Smoothies (small sips, no straw today)</li>
+          <li>Soft pasta, eggs, mashed potatoes</li>
+          <li>Normal breastfeeding/bottle-feeding for infants</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h3>Avoid for a few days</h3>
+        <ul class="clean cross">
+          <li>Hot foods or drinks</li>
+          <li>Spicy, salty, or acidic foods (citrus, tomato)</li>
+          <li>Crunchy, hard foods</li>
+          <li>Straws for 24 hours</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span> What's normal vs. what's not</h2>
+    <div class="compare">
+      <div class="compare-col">
+        <h3>Normal (expected)</h3>
+        <ul class="clean check">
+          <li>White, yellow, or gray patch at the site for 1–2 weeks</li>
+          <li>Mild soreness that fades over a few days</li>
+          <li>Some fussiness in children during stretches</li>
+          <li>Small amount of blood-tinged saliva for a few hours</li>
+          <li>Slight swelling of the lip or under the tongue</li>
+        </ul>
+      </div>
+      <div class="compare-col">
+        <h3>Call our office</h3>
+        <ul class="clean cross">
+          <li>Bleeding that won't stop after 15–20 min of gentle pressure</li>
+          <li>Severe pain not controlled by medication</li>
+          <li>Fever over 101°F</li>
+          <li>Swelling getting worse after day 2</li>
+          <li>Foul taste or pus from the site</li>
+          <li>The released tissue appearing to reattach despite stretches</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="call-box">
+      <h3>When to call us</h3>
+      <ul class="clean call-list">
+        <li>Bleeding that won't stop after 15–20 min of gentle pressure</li>
+        <li>Severe pain not controlled by medication</li>
+        <li>Fever over 101°F</li>
+        <li>Swelling getting worse after day 2</li>
+        <li>Signs of infection: pus, foul smell, spreading redness</li>
+        <li>The site looking like it's reattaching despite doing stretches</li>
+      </ul>
+      <h4 class="emergency">Urgent — don't wait</h4>
+      <ul class="clean call-list">
+        <li>Difficulty breathing or swallowing</li>
+        <li>Rapidly spreading swelling to your neck or under the tongue</li>
+      </ul>
+      <p style="font-size: 10.5px; color: var(--ink-soft); margin-top: 0.55rem; margin-bottom: 0;">Call our office right away for the on-call provider. If you truly cannot breathe or swallow, call 911.</p>
+    </div>
+  </section>
+
+  <footer class="doc-footer">
+    <div>Frenectomy Recovery Guide</div>
+    <div class="page-num">Single page · keep for 2 weeks of stretches</div>
+  </footer>
+</article>
+
+</body>
+</html>

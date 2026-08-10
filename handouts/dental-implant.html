@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>After Your Dental Implant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2733;
+    --ink-soft: #4a5a6b;
+    --ink-light: #7a8a9b;
+    --paper: #fdfcf9;
+    --cream: #f6f1e8;
+    --teal: #2a5f6f;
+    --teal-soft: #e6eff1;
+    --amber: #b8691f;
+    --amber-soft: #fdf3e6;
+    --sage: #4a7c59;
+    --sage-soft: #edf3ee;
+    --rule: #e5ddd0;
+    --rule-strong: #c9bfae;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e8e4db;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body { padding: 2rem 1rem; }
+
+  .page {
+    background: var(--paper);
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 2rem;
+    padding: 0.6in 0.65in;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .doc-header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+
+  .doc-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .doc-subtitle {
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 0.4rem;
+  }
+
+  .doc-meta {
+    font-size: 10px;
+    color: var(--ink-light);
+    text-align: right;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  .intro {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 6.5in;
+    margin-bottom: 1.1rem;
+  }
+
+  /* Timeline — 4 phase strip */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 1.2rem;
+    background: var(--cream);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .timeline-step {
+    padding: 0.7rem 0.6rem;
+    border-right: 1px solid var(--rule-strong);
+  }
+
+  .timeline-step:last-child { border-right: none; }
+
+  .timeline-when {
+    font-size: 9.5px;
+    font-weight: 600;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 3px;
+  }
+
+  .timeline-what {
+    font-size: 11px;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+
+  section { margin-bottom: 1rem; }
+
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    letter-spacing: -0.005em;
+  }
+
+  h2 .num {
+    font-family: 'Inter', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: var(--teal);
+    color: white;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  h3.sub {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.7rem;
+    margin-bottom: 0.35rem;
+  }
+
+  h3.sub:first-child { margin-top: 0; }
+
+  p, li { font-size: 12px; color: var(--ink); line-height: 1.55; }
+  p { margin-bottom: 0.45rem; }
+
+  .section-lead { color: var(--ink-soft); margin-bottom: 0.55rem; }
+
+  .callout {
+    padding: 0.65rem 0.8rem;
+    border-radius: 5px;
+    font-size: 11px;
+    line-height: 1.55;
+    margin-top: 0.55rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .callout.warn { background: var(--amber-soft); border-left: 3px solid var(--amber); color: #5a3410; }
+  .callout.info { background: var(--teal-soft); border-left: 3px solid var(--teal); color: #1a3a42; }
+  .callout.tip { background: var(--sage-soft); border-left: 3px solid var(--sage); color: #2a4a33; }
+
+  .callout-icon { flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+
+  /* Featured "protect" callout */
+  .protect-box {
+    background: linear-gradient(to right, var(--teal), #1e4b58);
+    color: white;
+    border-radius: 7px;
+    padding: 0.9rem 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .protect-box h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: white;
+  }
+
+  .protect-box p {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 11.5px;
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  .protect-box strong { color: white; }
+
+  /* Nicotine warning box */
+  .nicotine-box {
+    background: var(--amber-soft);
+    border: 1px solid #f0d4b0;
+    border-left: 4px solid var(--amber);
+    border-radius: 6px;
+    padding: 0.75rem 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .nicotine-box h3 {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--amber);
+    margin-bottom: 0.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .nicotine-box p {
+    font-size: 11.5px;
+    color: #5a3410;
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  /* Two-col */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-top: 0.4rem;
+  }
+
+  .col-card {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .col-card h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    margin-bottom: 0.45rem;
+  }
+
+  ul.clean { list-style: none; padding: 0; }
+
+  ul.clean li {
+    padding: 0.2rem 0 0.2rem 1.1rem;
+    position: relative;
+    font-size: 11.5px;
+  }
+
+  ul.clean li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.58rem;
+    width: 4px;
+    height: 4px;
+    background: var(--teal);
+    border-radius: 50%;
+  }
+
+  ul.cross li:before {
+    content: "✕";
+    background: none;
+    color: var(--amber);
+    font-weight: 600;
+    top: 0.2rem; width: auto; height: auto; font-size: 11px;
+  }
+
+  ul.check li:before {
+    content: "✓";
+    background: none;
+    color: var(--sage);
+    font-weight: 700;
+    top: 0.2rem; width: auto; height: auto; font-size: 11px;
+  }
+
+  /* Conditional panel (graft, sinus, temp crown) */
+  .conditional-panel {
+    background: linear-gradient(to right, var(--teal-soft), #f0e8dc);
+    border-radius: 7px;
+    padding: 0.8rem 0.95rem 0.75rem;
+    margin-top: 0.4rem;
+    border: 1px solid #cdd9d4;
+    position: relative;
+  }
+
+  .conditional-label {
+    position: absolute;
+    top: -8px;
+    left: 0.85rem;
+    background: var(--teal);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  .conditional-panel h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: 0.15rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .conditional-panel p { font-size: 11.5px; margin-bottom: 0.35rem; }
+  .conditional-panel ul.clean li { font-size: 11px; padding: 0.15rem 0 0.15rem 0.9rem; }
+
+  /* Compare */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 0.4rem;
+  }
+
+  .compare-col { padding: 0.65rem 0.8rem; }
+
+  .compare-col:first-child {
+    border-right: 1px solid var(--rule);
+    background: var(--sage-soft);
+  }
+
+  .compare-col:last-child { background: var(--amber-soft); }
+
+  .compare h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+
+  .compare-col:first-child h3 { color: var(--sage); }
+  .compare-col:last-child h3 { color: var(--amber); }
+
+  .compare ul.clean li { font-size: 11px; padding: 0.15rem 0 0.15rem 0.9rem; }
+
+  /* Call us */
+  .call-box {
+    border: 1.5px solid var(--teal);
+    border-radius: 7px;
+    padding: 0.85rem 1rem;
+    background: var(--paper);
+    margin-top: 0.5rem;
+  }
+
+  .call-box h3 {
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+  }
+
+  .call-box h4 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    margin-top: 0.6rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .call-box .emergency { color: #a21b1b; }
+
+  .call-list li { font-size: 11px; padding: 0.16rem 0 0.16rem 0.9rem; }
+
+  .doc-footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 0.65rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9.5px;
+    color: var(--ink-light);
+    letter-spacing: 0.02em;
+  }
+
+  .page-num { font-weight: 600; color: var(--teal); }
+
+  .questions {
+    margin-top: 0.55rem;
+    padding: 0.7rem 0.85rem;
+    background: var(--cream);
+    border-radius: 5px;
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  strong { color: var(--ink); }
+
+  @media print {
+    @page { size: letter; margin: 0; }
+    body { background: white; padding: 0; }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      padding: 0.55in 0.65in;
+      page-break-after: always;
+      min-height: 11in;
+    }
+    .page:last-child { page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== PAGE 1 ========== -->
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title">After your dental implant</h1>
+      <div class="doc-subtitle">Recovery Guide · Implant Placement</div>
+    </div>
+    <div class="doc-meta">
+      Keep this guide handy<br>
+      Call our office with any questions
+    </div>
+  </header>
+
+  <p class="intro">
+    A dental implant is a small titanium post placed in your jawbone to replace a missing tooth root. Over the next several months, your bone will grow onto the implant and hold it firmly in place — this is called <strong>osseointegration</strong>. Surprisingly, most patients find this procedure less uncomfortable than an extraction. Your job for the next few months is simple: protect the site and let your bone do its work.
+  </p>
+
+  <!-- Timeline -->
+  <div class="timeline">
+    <div class="timeline-step">
+      <div class="timeline-when">Today</div>
+      <div class="timeline-what">Rest. Ice. Soft foods. Don't chew on the implant side.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Days 1–7</div>
+      <div class="timeline-what">Mild soreness. Tissue closes over. Most patients return to work in 1–2 days.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Weeks 2–4</div>
+      <div class="timeline-what">Gums fully healed. Implant is integrating silently beneath.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Months 3–6</div>
+      <div class="timeline-what">Osseointegration completes. Time for your final crown.</div>
+    </div>
+  </div>
+
+  <!-- The big message -->
+  <div class="protect-box">
+    <h3>Your one job: protect the implant from movement</h3>
+    <p>The titanium post needs to stay absolutely still while bone grows onto it. Even tiny, repeated forces — chewing on it, poking it with your tongue, grinding at night — can disrupt this process and cause the implant to fail to integrate. <strong>Don't chew on the implant side for at least 2 weeks</strong>, longer if we tell you so.</p>
+  </div>
+
+  <!-- Section 1: First 24 hours -->
+  <section>
+    <h2><span class="num">1</span> The first 24 hours</h2>
+
+    <h3 class="sub">Bleeding</h3>
+    <p style="margin-bottom: 0.5rem;">Implants bleed less than extractions. Some oozing for a few hours is normal. If you have gauze, bite gently for 30 minutes. Don't spit forcefully — let saliva drain.</p>
+
+    <h3 class="sub">Ice for swelling</h3>
+    <ul class="clean">
+      <li>20 minutes on, 20 minutes off, for the first 24 hours</li>
+      <li>Swelling is usually mild compared to an extraction and peaks at 48–72 hours</li>
+      <li>After 48 hours, switch to warm moist compresses</li>
+    </ul>
+
+    <h3 class="sub">Protect the site</h3>
+    <ul class="clean cross">
+      <li>No rinsing, swishing, or spitting for 24 hours</li>
+      <li>No straws or sucking motions for 72 hours</li>
+      <li>Don't touch the area with your tongue, finger, or toothbrush</li>
+      <li>If you see a small metal piece (healing cap) poking through the gum — that's normal and intentional. Don't pick at it.</li>
+    </ul>
+
+    <h3 class="sub">Eat soft, cool foods — on the other side</h3>
+    <div class="two-col">
+      <div class="col-card">
+        <h3>Good choices</h3>
+        <ul class="clean check">
+          <li>Yogurt, cottage cheese, pudding</li>
+          <li>Smoothies (spoon, not straw)</li>
+          <li>Mashed potatoes, applesauce</li>
+          <li>Scrambled eggs, soft fish</li>
+          <li>Lukewarm soup, oatmeal</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h3>Avoid</h3>
+        <ul class="clean cross">
+          <li>Chewing directly on the implant side</li>
+          <li>Hard, crunchy, chewy foods near the site</li>
+          <li>Seeds, nuts, popcorn, chips</li>
+          <li>Hot temperatures (can increase swelling)</li>
+          <li>Alcohol for at least 72 hours</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Nicotine callout, sits at bottom of page 1 -->
+  <section style="margin-bottom: 0;">
+    <div class="nicotine-box">
+      <h3>⚠ About smoking, vaping, and nicotine</h3>
+      <p>This is the one habit most likely to make an implant fail. Nicotine constricts blood vessels and slows bone healing — <strong>smokers lose implants 2–3 times more often than non-smokers</strong>. This includes cigarettes, vapes, cigars, and nicotine pouches. If you can stop completely through the full integration period (3–6 months), your implant has the best chance. If that's not realistic, cutting down significantly still helps. We're not here to judge — we'd rather be honest about it than lose the implant.</p>
+    </div>
+  </section>
+
+  <footer class="doc-footer">
+    <div>Dental Implant Recovery Guide</div>
+    <div class="page-num">Page 1 of 2 · Turn over</div>
+  </footer>
+</article>
+
+<!-- ========== PAGE 2 ========== -->
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title" style="font-size: 22px;">Week one and beyond</h1>
+      <div class="doc-subtitle">Implant Recovery · continued</div>
+    </div>
+    <div class="doc-meta">Page 2 of 2</div>
+  </header>
+
+  <!-- Section 3: Pain, hygiene -->
+  <section>
+    <h2><span class="num">2</span> Pain, hygiene &amp; daily care</h2>
+    <p class="section-lead">Most implant patients need pain medication for only 1–3 days. A combination of <strong>ibuprofen + acetaminophen</strong> is usually more than enough — see your <strong>Medication Guide</strong> for dosing.</p>
+
+    <h3 class="sub">Rinsing (start tomorrow)</h3>
+    <ul class="clean">
+      <li>Mix ½ tsp salt in 8 oz warm water. Rinse gently 3–4× daily.</li>
+      <li>Let water <em>fall</em> out — don't spit forcefully.</li>
+      <li>If prescribed a <strong>chlorhexidine rinse</strong>, use it twice daily for the first 1–2 weeks.</li>
+    </ul>
+
+    <h3 class="sub">Brushing</h3>
+    <ul class="clean">
+      <li>Brush the rest of your teeth normally starting the day after surgery.</li>
+      <li>Avoid the implant site directly for the first 3 days.</li>
+      <li>After that, use a soft brush gently around (but not on) the site.</li>
+      <li>Don't floss around the implant until we tell you it's safe.</li>
+    </ul>
+  </section>
+
+  <!-- Section 4: Normal vs not -->
+  <section>
+    <h2><span class="num">3</span> What's normal vs. what's not</h2>
+    <div class="compare">
+      <div class="compare-col">
+        <h3>Normal (expected)</h3>
+        <ul class="clean check">
+          <li>Mild soreness for 1–3 days</li>
+          <li>Swelling peaking at 48–72h, then improving</li>
+          <li>Mild bruising of cheek or jaw</li>
+          <li>A small metal piece (healing cap) visible at the gumline</li>
+          <li>Slight looseness of stitches as they dissolve</li>
+          <li>Small amount of tissue or suture material coming out</li>
+          <li>The implant area feeling "different" from your other teeth</li>
+        </ul>
+      </div>
+      <div class="compare-col">
+        <h3>Call our office</h3>
+        <ul class="clean cross">
+          <li>Severe pain on day 3–5 that medication doesn't help at all</li>
+          <li>Pain, swelling, or bad taste that returns <em>after</em> you'd started to feel better</li>
+          <li>The implant feeling loose, wobbly, or moving when you touch it with your tongue</li>
+          <li>Heavy bleeding that won't stop after 30 min of firm pressure</li>
+          <li>Fever over 101°F</li>
+          <li>Complete numbness in lip, chin, or tongue still present after 2 days</li>
+          <li>The healing cap falling out completely</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-icon">💡</div>
+      <div><strong>The loose implant test.</strong> A healing implant should feel solid from day 1. If it feels like it's wiggling, rocking, or moving when you gently press it with your tongue, call us right away — that's the one sign that needs immediate attention.</div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">ℹ</div>
+      <div><strong>About complications.</strong> Modern implants have about a <strong>95–98% success rate</strong>. The most common reasons for failure are infection, smoking, uncontrolled diabetes, and chewing too early. All of these are mostly within your control. If you follow the protection rules, your odds are very good.</div>
+    </div>
+  </section>
+
+  <!-- Section 5: Conditional panels -->
+
+  <div class="conditional-panel">
+    <span class="conditional-label">If you had a bone graft</span>
+    <h3>Bone graft care</h3>
+    <p>A graft was placed alongside or around your implant to support the surrounding bone. A few things to expect:</p>
+    <ul class="clean">
+      <li>You may see small whitish-gray particles — this is graft material. <strong>Don't pick at them.</strong></li>
+      <li>A few grain-like bits in your saliva over the first few days is normal.</li>
+      <li>If you see a soft membrane at the site, or part of it becomes exposed, call us — it's not an emergency but we'll want to check it.</li>
+      <li>Full integration of the graft takes 3–4 months alongside the implant.</li>
+    </ul>
+  </div>
+
+  <div class="conditional-panel" style="margin-top: 0.8rem;">
+    <span class="conditional-label">If you had a sinus lift or the sinus was involved</span>
+    <h3>Sinus precautions</h3>
+    <p style="margin-bottom: 0;">You'll receive a separate <strong>Sinus Precautions</strong> handout. In short: for the next 2 weeks, <em>no nose blowing, no straws, sneeze with your mouth open, no heavy lifting, no air travel.</em> Full details are on the other handout.</p>
+  </div>
+
+  <!-- Section 6: Other things -->
+  <section style="margin-top: 1rem;">
+    <h2><span class="num">4</span> Other things that may help</h2>
+    <ul class="clean">
+      <li><strong>Vitamin D</strong> — if you've never had your level checked, ask your primary care provider. Low vitamin D is linked to early implant failure, and correcting a deficiency is cheap and easy.</li>
+      <li><strong>Bromelain</strong> (500 mg, 3× daily, 5–7 days) — pineapple-derived enzyme with research support for reducing swelling. Skip if on blood thinners, with a bleeding disorder, or with pineapple allergy.</li>
+      <li><strong>Sleep</strong> — 7+ hours nightly. Sleep loss measurably slows healing.</li>
+      <li><strong>Protein</strong> — 80–100g daily supports bone and tissue healing.</li>
+      <li><strong>If you grind your teeth at night</strong>, we may recommend a night guard before or during healing. Grinding forces can disrupt osseointegration.</li>
+    </ul>
+  </section>
+
+  <!-- Call us -->
+  <section>
+    <div class="call-box">
+      <h3>When to call us</h3>
+      <ul class="clean call-list">
+        <li>The implant feels loose, wobbly, or moves when you touch it</li>
+        <li>Severe pain on day 3–5 that your medication doesn't help at all</li>
+        <li>Pain, swelling, or bad taste that returns after you'd started to feel better</li>
+        <li>The healing cap falls out completely (save it and bring it in)</li>
+        <li>Heavy bleeding that won't stop after 30 min of firm pressure</li>
+        <li>Fever over 101°F</li>
+        <li>Complete numbness in lip, chin, or tongue still present after 2 days</li>
+      </ul>
+      <h4 class="emergency">Urgent — don't wait</h4>
+      <ul class="clean call-list">
+        <li>Difficulty breathing or swallowing</li>
+        <li>Rapidly spreading swelling to your neck, under your tongue, or around your eye</li>
+      </ul>
+      <p style="font-size: 10.5px; color: var(--ink-soft); margin-top: 0.55rem; margin-bottom: 0;">Call our office right away for the on-call provider. If you truly cannot breathe or swallow, call 911.</p>
+    </div>
+  </section>
+
+  <div class="questions">
+    Your implant is an investment in the long term. The first few weeks of protection set the stage for years of reliable function. If anything feels off, call us — a small check-in is always easier than a lost implant.
+  </div>
+
+  <footer class="doc-footer">
+    <div>Dental Implant Recovery Guide</div>
+    <div class="page-num">Page 2 of 2</div>
+  </footer>
+</article>
+
+</body>
+</html>

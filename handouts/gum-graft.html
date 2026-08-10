@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>After Your Gum Graft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2733;
+    --ink-soft: #4a5a6b;
+    --ink-light: #7a8a9b;
+    --paper: #fdfcf9;
+    --cream: #f6f1e8;
+    --teal: #2a5f6f;
+    --teal-soft: #e6eff1;
+    --amber: #b8691f;
+    --amber-soft: #fdf3e6;
+    --sage: #4a7c59;
+    --sage-soft: #edf3ee;
+    --rule: #e5ddd0;
+    --rule-strong: #c9bfae;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e8e4db;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body { padding: 2rem 1rem; }
+
+  .page {
+    background: var(--paper);
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 2rem;
+    padding: 0.6in 0.65in;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .doc-header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+
+  .doc-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .doc-subtitle {
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 0.4rem;
+  }
+
+  .doc-meta {
+    font-size: 10px;
+    color: var(--ink-light);
+    text-align: right;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  .intro {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 6.5in;
+    margin-bottom: 1.1rem;
+  }
+
+  /* Timeline */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 1.2rem;
+    background: var(--cream);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .timeline-step {
+    padding: 0.7rem 0.6rem;
+    border-right: 1px solid var(--rule-strong);
+  }
+
+  .timeline-step:last-child { border-right: none; }
+
+  .timeline-when {
+    font-size: 9.5px;
+    font-weight: 600;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 3px;
+  }
+
+  .timeline-what {
+    font-size: 11px;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+
+  section { margin-bottom: 1rem; }
+
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    letter-spacing: -0.005em;
+  }
+
+  h2 .num {
+    font-family: 'Inter', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: var(--teal);
+    color: white;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  h3.sub {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.7rem;
+    margin-bottom: 0.35rem;
+  }
+
+  h3.sub:first-child { margin-top: 0; }
+
+  p, li { font-size: 12px; color: var(--ink); line-height: 1.55; }
+  p { margin-bottom: 0.45rem; }
+
+  .section-lead { color: var(--ink-soft); margin-bottom: 0.55rem; }
+
+  .callout {
+    padding: 0.65rem 0.8rem;
+    border-radius: 5px;
+    font-size: 11px;
+    line-height: 1.55;
+    margin-top: 0.55rem;
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .callout.warn { background: var(--amber-soft); border-left: 3px solid var(--amber); color: #5a3410; }
+  .callout.info { background: var(--teal-soft); border-left: 3px solid var(--teal); color: #1a3a42; }
+  .callout.tip { background: var(--sage-soft); border-left: 3px solid var(--sage); color: #2a4a33; }
+
+  .callout-icon { flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+
+  /* Featured protect box */
+  .protect-box {
+    background: linear-gradient(to right, var(--teal), #1e4b58);
+    color: white;
+    border-radius: 7px;
+    padding: 0.9rem 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.95rem;
+  }
+
+  .protect-box h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: white;
+  }
+
+  .protect-box p {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 11.5px;
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  .protect-box strong { color: white; }
+
+  /* Two-col */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-top: 0.4rem;
+  }
+
+  .col-card {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 0.7rem 0.85rem;
+  }
+
+  .col-card h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    margin-bottom: 0.45rem;
+  }
+
+  ul.clean { list-style: none; padding: 0; }
+
+  ul.clean li {
+    padding: 0.2rem 0 0.2rem 1.1rem;
+    position: relative;
+    font-size: 11.5px;
+  }
+
+  ul.clean li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.58rem;
+    width: 4px;
+    height: 4px;
+    background: var(--teal);
+    border-radius: 50%;
+  }
+
+  ul.cross li:before {
+    content: "✕";
+    background: none;
+    color: var(--amber);
+    font-weight: 600;
+    top: 0.2rem; width: auto; height: auto; font-size: 11px;
+  }
+
+  ul.check li:before {
+    content: "✓";
+    background: none;
+    color: var(--sage);
+    font-weight: 700;
+    top: 0.2rem; width: auto; height: auto; font-size: 11px;
+  }
+
+  /* Conditional panel */
+  .conditional-panel {
+    background: linear-gradient(to right, var(--teal-soft), #f0e8dc);
+    border-radius: 7px;
+    padding: 0.8rem 0.95rem 0.75rem;
+    margin-top: 0.4rem;
+    border: 1px solid #cdd9d4;
+    position: relative;
+  }
+
+  .conditional-label {
+    position: absolute;
+    top: -8px;
+    left: 0.85rem;
+    background: var(--teal);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  .conditional-panel h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: 0.15rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .conditional-panel p { font-size: 11.5px; margin-bottom: 0.35rem; }
+  .conditional-panel ul.clean li { font-size: 11px; padding: 0.15rem 0 0.15rem 0.9rem; }
+
+  /* Compare */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 0.4rem;
+  }
+
+  .compare-col { padding: 0.65rem 0.8rem; }
+
+  .compare-col:first-child {
+    border-right: 1px solid var(--rule);
+    background: var(--sage-soft);
+  }
+
+  .compare-col:last-child { background: var(--amber-soft); }
+
+  .compare h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+
+  .compare-col:first-child h3 { color: var(--sage); }
+  .compare-col:last-child h3 { color: var(--amber); }
+
+  .compare ul.clean li { font-size: 11px; padding: 0.15rem 0 0.15rem 0.9rem; }
+
+  /* Call us */
+  .call-box {
+    border: 1.5px solid var(--teal);
+    border-radius: 7px;
+    padding: 0.85rem 1rem;
+    background: var(--paper);
+    margin-top: 0.5rem;
+  }
+
+  .call-box h3 {
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+  }
+
+  .call-box h4 {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    margin-top: 0.6rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .call-box .emergency { color: #a21b1b; }
+
+  .call-list li { font-size: 11px; padding: 0.16rem 0 0.16rem 0.9rem; }
+
+  .doc-footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 0.65rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9.5px;
+    color: var(--ink-light);
+    letter-spacing: 0.02em;
+  }
+
+  .page-num { font-weight: 600; color: var(--teal); }
+
+  .questions {
+    margin-top: 0.55rem;
+    padding: 0.7rem 0.85rem;
+    background: var(--cream);
+    border-radius: 5px;
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  strong { color: var(--ink); }
+
+  @media print {
+    @page { size: letter; margin: 0; }
+    body { background: white; padding: 0; }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      padding: 0.55in 0.65in;
+      page-break-after: always;
+      min-height: 11in;
+    }
+    .page:last-child { page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== PAGE 1 ========== -->
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title">After your gum graft</h1>
+      <div class="doc-subtitle">Recovery Guide · Soft Tissue Graft</div>
+    </div>
+    <div class="doc-meta">
+      Keep this guide handy<br>
+      Call our office with any questions
+    </div>
+  </header>
+
+  <p class="intro">
+    A small piece of tissue was placed over your gum to build thicker, healthier gum around one or more teeth. The graft needs to form its own new blood supply from the tissue underneath — this happens over the first 2 weeks. During that window, the graft is fragile, and <strong>anything that disturbs it can cause it to fail</strong>. Most of your recovery is about leaving it alone.
+  </p>
+
+  <!-- Timeline -->
+  <div class="timeline">
+    <div class="timeline-step">
+      <div class="timeline-when">Today</div>
+      <div class="timeline-what">Rest. Ice. Cool, soft foods. Don't touch the graft.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Days 1–14</div>
+      <div class="timeline-what">Graft forms new blood supply. No brushing or flossing at the site.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Weeks 2–4</div>
+      <div class="timeline-what">Tissue pinks up. Sutures dissolve. Gradually resume normal hygiene.</div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-when">Months 2–6</div>
+      <div class="timeline-what">Full color and texture match your other gums.</div>
+    </div>
+  </div>
+
+  <!-- The big protection message -->
+  <div class="protect-box">
+    <h3>Leave the graft alone</h3>
+    <p>For the next 2 weeks, <strong>do not pull your lip down to look at it, brush it, floss it, or touch it with your tongue.</strong> This is the single most common reason grafts fail — patients keep checking on them. The sutures and the tissue seal are holding the graft in place while it grows new blood vessels. Even gentle pulling or lifting of the lip breaks that seal.</p>
+  </div>
+
+  <!-- Section 1: First 24 hours -->
+  <section>
+    <h2><span class="num">1</span> The first 24 hours</h2>
+
+    <h3 class="sub">Bleeding</h3>
+    <p>Some oozing from the graft or donor site is normal for a few hours. If bleeding restarts, apply a damp gauze or tea bag with <em>gentle</em> pressure (not biting) for 20–30 minutes. Keep your head elevated.</p>
+
+    <h3 class="sub">Ice for swelling</h3>
+    <ul class="clean">
+      <li>20 minutes on, 20 minutes off over the outside of your cheek or lip for the first 24 hours</li>
+      <li>Swelling is usually mild and peaks at 48–72 hours</li>
+      <li>Bruising on the face is normal and can appear days later</li>
+    </ul>
+
+    <h3 class="sub">What not to do</h3>
+    <ul class="clean cross">
+      <li>Don't pull your lip or cheek to look at the site</li>
+      <li>Don't rinse, swish, or spit for 24 hours</li>
+      <li>Don't brush, floss, or use a water flosser near the graft</li>
+      <li>Don't use straws for 24 hours</li>
+      <li>Don't chew on the graft side</li>
+      <li>Don't smoke or vape — this is one of the top reasons grafts fail</li>
+    </ul>
+  </section>
+
+  <!-- Donor site conditional -->
+  <div class="conditional-panel">
+    <span class="conditional-label">If tissue was taken from the roof of your mouth</span>
+    <h3>Taking care of the palate (donor site)</h3>
+    <p>Many patients find the palate actually feels more sore than the graft site itself — the tissue there is thin and we took a small piece of it. It will heal completely over 2–3 weeks.</p>
+    <ul class="clean" style="margin-top: 0.3rem;">
+      <li>A small amount of bleeding from the palate is normal for the first day. Apply gentle pressure with gauze if needed.</li>
+      <li>If you were given a <strong>palatal stent or bandage</strong>, wear it as directed — it protects the area while you eat.</li>
+      <li>Avoid hot, spicy, acidic, or crunchy foods on the palate for 2 weeks.</li>
+      <li>You may feel a raw, tender spot on the roof of your mouth — this will gradually close over.</li>
+      <li>Don't probe the area with your tongue.</li>
+    </ul>
+  </div>
+
+  <footer class="doc-footer">
+    <div>Gum Graft Recovery Guide</div>
+    <div class="page-num">Page 1 of 2 · Turn over</div>
+  </footer>
+</article>
+
+<!-- ========== PAGE 2 ========== -->
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title" style="font-size: 22px;">Weeks one through four</h1>
+      <div class="doc-subtitle">Gum Graft Recovery · continued</div>
+    </div>
+    <div class="doc-meta">Page 2 of 2</div>
+  </header>
+
+  <!-- Section 2: Pain, rinsing, hygiene -->
+  <section>
+    <h2><span class="num">2</span> Medications, rinsing &amp; hygiene</h2>
+    <p class="section-lead">Most gum graft patients need pain medication for only 2–4 days. A combination of <strong>ibuprofen + acetaminophen</strong> is usually more than enough — see your <strong>Medication Guide</strong> for dosing.</p>
+
+    <h3 class="sub">Chlorhexidine rinse (start tomorrow)</h3>
+    <p>Because you can't brush near the graft, a prescribed chlorhexidine rinse (Peridex, Paradex, Periogard) keeps the area clean. Use it <strong>twice daily</strong> for 2 weeks. Very important: <strong>do not swish forcefully.</strong> Let it pool in your mouth, tilt your head side to side gently, then let it fall out. Don't eat or drink for 30 minutes after.</p>
+
+    <h3 class="sub">Brushing &amp; flossing</h3>
+    <ul class="clean">
+      <li>Brush the rest of your teeth normally starting the day after surgery</li>
+      <li><strong>Do not brush the graft or the teeth right next to it for 2 weeks</strong></li>
+      <li>Do not floss near the graft for 2–3 weeks</li>
+      <li>After 2 weeks, use a <em>very soft</em> toothbrush with light pressure — we'll guide you at your follow-up</li>
+      <li>No water flossers, electric toothbrushes, or whitening products near the site for at least a month</li>
+    </ul>
+  </section>
+
+  <!-- Section 3: Diet -->
+  <section>
+    <h2><span class="num">3</span> Diet</h2>
+    <p class="section-lead">Soft, cool foods for at least the first week. Don't chew directly on the graft side for <strong>2 weeks</strong>.</p>
+    <div class="two-col">
+      <div class="col-card">
+        <h3>Good choices</h3>
+        <ul class="clean check">
+          <li>Yogurt, cottage cheese, pudding</li>
+          <li>Smoothies (spoon, no straw)</li>
+          <li>Mashed potatoes, oatmeal</li>
+          <li>Scrambled eggs, soft fish</li>
+          <li>Lukewarm soup</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h3>Avoid</h3>
+        <ul class="clean cross">
+          <li>Hard, crunchy, or sharp foods</li>
+          <li>Hot temperatures (can restart bleeding)</li>
+          <li>Spicy or acidic foods (especially on the palate)</li>
+          <li>Seeds, nuts, popcorn, chips</li>
+          <li>Chewing directly on the graft side</li>
+          <li>Alcohol for at least 72 hours</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Normal vs not -->
+  <section>
+    <h2><span class="num">4</span> What's normal vs. what's not</h2>
+    <div class="compare">
+      <div class="compare-col">
+        <h3>Normal (expected)</h3>
+        <ul class="clean check">
+          <li>The graft looking <strong>white, gray, or pale</strong> — this is normal for 1–2 weeks, not a sign of failure</li>
+          <li>Mild swelling peaking at 48–72h</li>
+          <li>Bruising on the face that can appear days later</li>
+          <li>Raw, tender feeling on the palate</li>
+          <li>Sutures gradually dissolving or coming loose over 1–3 weeks</li>
+          <li>Slight shrinkage of the graft as it heals (some is expected)</li>
+          <li>Mild soreness that steadily improves</li>
+        </ul>
+      </div>
+      <div class="compare-col">
+        <h3>Call our office</h3>
+        <ul class="clean cross">
+          <li>The graft turns <strong>dark purple, blue, or black</strong></li>
+          <li>The graft falls off or comes loose</li>
+          <li>Heavy bleeding from the palate that won't stop after 30 min of gentle pressure</li>
+          <li>Severe pain on day 3–5 that medication doesn't help at all</li>
+          <li>Pain, swelling, or bad taste that returns after you'd started to feel better</li>
+          <li>Fever over 101°F</li>
+          <li>A foul smell or pus from the graft area</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-icon">ℹ</div>
+      <div><strong>About the color change.</strong> In the first 1–2 weeks, the graft almost always looks white, gray, or pale — it hasn't built its blood supply yet. This is the #1 reason patients panic and call. It does <em>not</em> mean the graft has failed. By week 3, it starts looking pink, and by a few months it will match your other gums.</div>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-icon">💡</div>
+      <div><strong>If a suture comes loose,</strong> don't pull on it. Leave it alone — it'll fall out on its own or we'll remove it at your follow-up.</div>
+    </div>
+  </section>
+
+  <!-- Section 5: Other things -->
+  <section>
+    <h2><span class="num">5</span> Other things that may help</h2>
+    <ul class="clean">
+      <li><strong>No nicotine</strong> — smoking and vaping dramatically raise the risk of graft failure. If you can stop for at least 3 weeks, your graft has the best chance.</li>
+      <li><strong>Sleep with your head elevated</strong> for the first 2–3 nights to reduce swelling.</li>
+      <li><strong>Protein</strong> — 80–100g daily supports tissue healing.</li>
+      <li><strong>Bromelain</strong> (500 mg, 3× daily, 5–7 days) — may reduce swelling. Skip if on blood thinners or with pineapple allergy.</li>
+      <li><strong>Don't exercise hard</strong> for 3–5 days — elevated blood pressure can restart bleeding.</li>
+    </ul>
+  </section>
+
+  <!-- Call us -->
+  <section>
+    <div class="call-box">
+      <h3>When to call us</h3>
+      <ul class="clean call-list">
+        <li>The graft turns dark purple, blue, or black</li>
+        <li>The graft falls off or comes loose</li>
+        <li>Severe pain on day 3–5 that your medication doesn't help at all</li>
+        <li>Pain, swelling, or bad taste returning after you'd started to feel better</li>
+        <li>Heavy bleeding from the palate that won't stop after 30 min of gentle pressure</li>
+        <li>Fever over 101°F</li>
+        <li>A foul smell or pus from the graft area</li>
+      </ul>
+      <h4 class="emergency">Urgent — don't wait</h4>
+      <ul class="clean call-list">
+        <li>Difficulty breathing or swallowing</li>
+        <li>Rapidly spreading swelling to your neck or around your eye</li>
+      </ul>
+      <p style="font-size: 10.5px; color: var(--ink-soft); margin-top: 0.55rem; margin-bottom: 0;">Call our office right away for the on-call provider. If you truly cannot breathe or swallow, call 911.</p>
+    </div>
+  </section>
+
+  <div class="questions">
+    Gum grafts are slow healers — the first 2 weeks require patience and a hands-off approach. The more you leave it alone, the better it will look in a few months.
+  </div>
+
+  <footer class="doc-footer">
+    <div>Gum Graft Recovery Guide</div>
+    <div class="page-num">Page 2 of 2</div>
+  </footer>
+</article>
+
+</body>
+</html>

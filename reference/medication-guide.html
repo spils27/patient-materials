@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Medication Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2733;
+    --ink-soft: #4a5a6b;
+    --ink-light: #7a8a9b;
+    --paper: #fdfcf9;
+    --cream: #f6f1e8;
+    --teal: #2a5f6f;
+    --teal-soft: #e6eff1;
+    --amber: #b8691f;
+    --amber-soft: #fdf3e6;
+    --sage: #4a7c59;
+    --sage-soft: #edf3ee;
+    --rule: #e5ddd0;
+    --rule-strong: #c9bfae;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e8e4db;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body { padding: 2rem 1rem; }
+
+  .page {
+    background: var(--paper);
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 2rem;
+    padding: 0.55in 0.6in;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+  .doc-header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+
+  .doc-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .doc-subtitle {
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 0.4rem;
+  }
+
+  .doc-meta {
+    font-size: 10px;
+    color: var(--ink-light);
+    text-align: right;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  /* Intro */
+  .intro {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 6.5in;
+    margin-bottom: 1rem;
+  }
+
+  /* Hero pain section */
+  .hero-pain {
+    background: linear-gradient(to right, var(--teal), #1e4b58);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .hero-pain h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-pain .lead {
+    color: rgba(255,255,255,0.88);
+    font-size: 11.5px;
+    line-height: 1.55;
+    margin-bottom: 0.85rem;
+  }
+
+  .hero-pain strong { color: white; }
+  .hero-pain em { color: rgba(255,255,255,0.85); font-style: normal; font-weight: 500; }
+
+  /* Schedule visual */
+  .schedule {
+    background: rgba(255,255,255,0.09);
+    border-radius: 6px;
+    padding: 0.7rem 0.85rem 0.75rem;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .schedule-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.75);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.55rem;
+  }
+
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+
+  .schedule-block {
+    background: rgba(255,255,255,0.15);
+    border-radius: 5px;
+    padding: 0.5rem 0.55rem;
+  }
+
+  .schedule-time {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.25rem;
+  }
+
+  .schedule-meds {
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.35;
+  }
+
+  .hero-notes {
+    margin-top: 0.7rem;
+    font-size: 11px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.5;
+  }
+
+  .hero-notes ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .hero-notes li {
+    padding: 0.12rem 0 0.12rem 1rem;
+    position: relative;
+  }
+
+  .hero-notes li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* Section heading */
+  .section-heading {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.55rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--rule);
+    letter-spacing: -0.005em;
+  }
+
+  /* Med card grid */
+  .med-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+    margin-bottom: 1rem;
+  }
+
+  .med-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--teal);
+    border-radius: 5px;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .med-card.amber { border-left-color: var(--amber); }
+  .med-card.sage { border-left-color: var(--sage); }
+
+  .med-card h3 {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.35rem;
+  }
+
+  .med-card.amber h3 { color: var(--amber); }
+  .med-card.sage h3 { color: var(--sage); }
+
+  .med-card .condition {
+    font-size: 9.5px;
+    color: var(--ink-light);
+    font-style: italic;
+    margin-bottom: 0.35rem;
+    display: block;
+  }
+
+  .med-card p {
+    font-size: 11px;
+    color: var(--ink);
+    line-height: 1.5;
+    margin-bottom: 0.3rem;
+  }
+
+  .med-card p:last-child { margin-bottom: 0; }
+
+  .med-card strong { color: var(--ink); }
+
+  .med-card .small-note {
+    font-size: 10px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    margin-top: 0.3rem;
+    padding-top: 0.3rem;
+    border-top: 1px dashed var(--rule);
+  }
+
+  /* Wide card (full width) */
+  .med-card-wide {
+    grid-column: 1 / -1;
+  }
+
+  /* Warnings */
+  .warning-strip {
+    background: var(--amber-soft);
+    border-left: 3px solid var(--amber);
+    border-radius: 5px;
+    padding: 0.55rem 0.75rem;
+    font-size: 10.5px;
+    color: #5a3410;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+  }
+
+  .warning-strip strong { color: var(--amber); }
+
+  /* Footer */
+  .doc-footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 0.6rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9.5px;
+    color: var(--ink-light);
+    letter-spacing: 0.02em;
+  }
+
+  .page-num { font-weight: 600; color: var(--teal); }
+
+  strong { color: var(--ink); }
+
+  @media print {
+    @page { size: letter; margin: 0; }
+    body { background: white; padding: 0; }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      padding: 0.5in 0.6in;
+      min-height: 11in;
+    }
+  }
+</style>
+</head>
+<body>
+
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title">Your medication guide</h1>
+      <div class="doc-subtitle">Pairs with your recovery instructions</div>
+    </div>
+    <div class="doc-meta">
+      Pairs with your<br>
+      procedure-specific<br>
+      recovery guide
+    </div>
+  </header>
+
+  <p class="intro">
+    Your prescriber has chosen medications based on your procedure and health history. <strong>Only take what you were actually prescribed.</strong> This guide explains how and when to use each one. If you have any questions, call our office before taking anything.
+  </p>
+
+  <!-- Hero pain section -->
+  <div class="hero-pain">
+    <h2>Pain &amp; swelling — the core schedule</h2>
+    <p class="lead">Research shows that <strong>ibuprofen (Advil, Motrin) combined with acetaminophen (Tylenol) works as well as prescription opioids</strong> for most dental pain, with fewer side effects. Start before the numbness wears off. Take both together, on schedule, for the first 48–72 hours — don't wait for pain to come back.</p>
+
+    <div class="schedule">
+      <div class="schedule-title">Example schedule · every 6 hours · with food</div>
+      <div class="schedule-grid">
+        <div class="schedule-block">
+          <div class="schedule-time">6 AM</div>
+          <div class="schedule-meds">Ibuprofen 600 mg<br>+ Tylenol 1000 mg</div>
+        </div>
+        <div class="schedule-block">
+          <div class="schedule-time">12 PM</div>
+          <div class="schedule-meds">Ibuprofen 600 mg<br>+ Tylenol 1000 mg</div>
+        </div>
+        <div class="schedule-block">
+          <div class="schedule-time">6 PM</div>
+          <div class="schedule-meds">Ibuprofen 600 mg<br>+ Tylenol 1000 mg</div>
+        </div>
+        <div class="schedule-block">
+          <div class="schedule-time">12 AM</div>
+          <div class="schedule-meds">Ibuprofen 600 mg<br>+ Tylenol 1000 mg</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-notes">
+      <ul>
+        <li>Pick times that fit your day — just keep each dose 6 hours apart.</li>
+        <li><strong>Max 24 hr:</strong> Ibuprofen 3200 mg · Acetaminophen 4000 mg. Don't exceed either.</li>
+        <li>Always take ibuprofen with food to protect your stomach.</li>
+        <li>After 72 hours, step down to only as needed.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- "If prescribed" section -->
+  <h2 class="section-heading">If you were also prescribed…</h2>
+
+  <div class="med-grid">
+
+    <!-- Journavx (non-opioid alternative) -->
+    <div class="med-card amber">
+      <h3>Journavx (suzetrigine)</h3>
+      <span class="condition">Non-opioid prescription pain medication</span>
+      <p>A newer non-opioid option for moderate to severe pain. <strong>Non-addictive, no drowsiness, no respiratory risk.</strong> Take exactly as prescribed:</p>
+      <p><strong>First dose:</strong> 100 mg on an empty stomach (at least 1 hour before or 2 hours after food). Clear liquids are okay.<br>
+      <strong>After that:</strong> 50 mg every 12 hours, with or without food. Swallow whole — don't crush or chew.</p>
+      <div class="small-note">Avoid grapefruit while taking this. Tell us if you start any new antibiotic, antifungal, or HIV medication — some interact.</div>
+    </div>
+
+    <!-- Opioid -->
+    <div class="med-card amber">
+      <h3>Opioid pain medication</h3>
+      <span class="condition">Hydrocodone (Norco) or oxycodone (Percocet)</span>
+      <p><strong>Only take this if the ibuprofen + Tylenol combination isn't enough.</strong> It's a backup, not your first line. Take 1 tablet every 6 hours as needed.</p>
+      <p>Don't combine with alcohol, sleeping pills, or other opioids. Don't drive. Most patients need this for 1–2 days at most, if at all.</p>
+      <div class="small-note">Take leftover tablets to a pharmacy drug take-back bin — don't keep them in the house.</div>
+    </div>
+
+    <!-- Antibiotic -->
+    <div class="med-card">
+      <h3>Antibiotic</h3>
+      <span class="condition">Amoxicillin, Augmentin, or clindamycin</span>
+      <p><strong>Start 2 days before your surgery</strong> and <strong>take the full course, even if you feel fine</strong> — don't stop early. Set reminders so you don't miss a dose.</p>
+      <p>Space doses evenly (for example, 8 AM / 2 PM / 8 PM / 2 AM for 4×/day, or 8 AM and 8 PM for 2×/day).</p>
+      <div class="small-note">Mild stomach upset or diarrhea is common. Severe diarrhea, rash, or trouble breathing — stop the medication and call us.</div>
+    </div>
+
+    <!-- Steroid pack -->
+    <div class="med-card">
+      <h3>Steroid (Medrol Dose Pack)</h3>
+      <span class="condition">Methylprednisolone, tapered over 6 days</span>
+      <p>Follow the printed instructions on the package exactly — the dose goes down each day. <strong>Take all doses with food.</strong></p>
+      <p><strong>While you're on the steroid pack, stop taking ibuprofen.</strong> Use acetaminophen (Tylenol) alone for pain. Resume ibuprofen the day after the pack is finished.</p>
+      <div class="small-note">You may feel wired, have trouble sleeping, or notice an odd taste. All normal and temporary.</div>
+    </div>
+
+    <!-- Decongestant -->
+    <div class="med-card">
+      <h3>Decongestant</h3>
+      <span class="condition">Pseudoephedrine (Sudafed) — for sinus procedures</span>
+      <p>Take as directed for 5–7 days. Keeps your sinus draining properly while the area heals.</p>
+      <p><strong>Don't use Afrin or similar nasal sprays for more than 3 days</strong> — they cause rebound congestion. Saline nasal spray is safe to use as often as you want.</p>
+      <div class="small-note">Skip if you have high blood pressure, heart issues, or prostate problems — call us for an alternative.</div>
+    </div>
+
+    <!-- CHX rinse -->
+    <div class="med-card">
+      <h3>Chlorhexidine rinse</h3>
+      <span class="condition">Peridex, Paradex, or Periogard (prescription)</span>
+      <p>Rinse <strong>twice daily</strong> — morning and night — <strong>starting 2 days before your surgery</strong>, and continue after surgery until the bottle is finished. Don't swish forcefully; let it pool, tilt your head gently, then let it fall out.</p>
+      <p><strong>Don't eat or drink for 30 minutes after.</strong> Use salt water the rest of the day.</p>
+      <div class="small-note">Can stain teeth brown temporarily. A cleaning after you're done removes it.</div>
+    </div>
+
+    <!-- Anti-nausea (full width) -->
+    <div class="med-card med-card-wide">
+      <h3>Anti-nausea medication</h3>
+      <span class="condition">Ondansetron (Zofran) — if prescribed</span>
+      <p>Take only if you feel nauseated. Dissolves under the tongue — no water needed. Can take every 8 hours as needed. Not everyone needs this; if you feel fine, you don't need to take it.</p>
+    </div>
+
+  </div>
+
+  <!-- Supplements section -->
+  <h2 class="section-heading">Optional supplements that may help</h2>
+
+  <div class="med-grid">
+
+    <div class="med-card sage">
+      <h3>Probiotic</h3>
+      <span class="condition">If you're taking an antibiotic</span>
+      <p>Antibiotics cause diarrhea in about 1 in 5 people. A probiotic cuts that risk roughly in half.</p>
+      <p><strong>Choose a specific strain:</strong> <em>Saccharomyces boulardii</em> (Florastor) or <em>Lactobacillus rhamnosus</em> GG (Culturelle). Once daily, starting the same day as your antibiotic, continuing 3–5 days after it's done.</p>
+      <div class="small-note">Space 2 hours apart from your antibiotic dose. Skip if immunocompromised, on chemotherapy, or if you have a central IV line.</div>
+    </div>
+
+    <div class="med-card sage">
+      <h3>Bromelain</h3>
+      <span class="condition">Optional, for swelling</span>
+      <p>A pineapple-derived enzyme with research support for reducing swelling after oral surgery. <strong>500 mg, 3× daily, for 5–7 days.</strong> Look for products with at least 2,000 GDU/g.</p>
+      <div class="small-note">Skip if you take a blood thinner, have a bleeding disorder, or are allergic to pineapple.</div>
+    </div>
+
+  </div>
+
+  <div class="warning-strip">
+    <strong>Important:</strong> Don't mix prescription medications with alcohol, recreational drugs, or over-the-counter sleep aids without checking with us. If you're not sure whether something is safe to take, call first.
+  </div>
+
+  <footer class="doc-footer">
+    <div>Medication Guide · Pairs with your recovery instructions</div>
+    <div class="page-num">Call our office with any questions</div>
+  </footer>
+</article>
+
+</body>
+</html>

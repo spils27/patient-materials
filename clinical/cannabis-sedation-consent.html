@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cannabis Use & Sedation — Informed Consent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2733;
+    --ink-soft: #4a5a6b;
+    --ink-light: #7a8a9b;
+    --paper: #fdfcf9;
+    --cream: #f6f1e8;
+    --teal: #2a5f6f;
+    --teal-soft: #e6eff1;
+    --amber: #b8691f;
+    --amber-soft: #fdf3e6;
+    --sage: #4a7c59;
+    --sage-soft: #edf3ee;
+    --rule: #e5ddd0;
+    --rule-strong: #c9bfae;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e8e4db;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body { padding: 2rem 1rem; }
+
+  .page {
+    background: var(--paper);
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto 2rem;
+    padding: 0.6in 0.65in;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .doc-header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+
+  .doc-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 26px;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .doc-subtitle {
+    font-size: 11.5px;
+    color: var(--teal);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 0.4rem;
+  }
+
+  .doc-meta {
+    font-size: 10px;
+    color: var(--ink-light);
+    text-align: right;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  .intro {
+    font-size: 12px;
+    color: var(--ink);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .intro strong { color: var(--ink); }
+
+  section { margin-bottom: 0.95rem; }
+
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 0.45rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--rule);
+    letter-spacing: -0.005em;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  h2 .sec-num {
+    color: var(--teal);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  p, li {
+    font-size: 11.5px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  p { margin-bottom: 0.5rem; }
+
+  ol.risks {
+    list-style: none;
+    counter-reset: risk;
+    padding: 0;
+    margin: 0.4rem 0;
+  }
+
+  ol.risks li {
+    counter-increment: risk;
+    padding: 0.55rem 0 0.55rem 2rem;
+    position: relative;
+    border-bottom: 1px solid var(--rule);
+    font-size: 11.5px;
+    line-height: 1.55;
+  }
+
+  ol.risks li:last-child { border-bottom: none; }
+
+  ol.risks li:before {
+    content: counter(risk);
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    background: var(--teal);
+    color: white;
+    border-radius: 50%;
+    font-size: 10.5px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ol.risks li strong {
+    display: block;
+    font-size: 12px;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .disclosure-box {
+    background: var(--teal-soft);
+    border-left: 3px solid var(--teal);
+    border-radius: 5px;
+    padding: 0.7rem 0.85rem;
+    margin: 0.5rem 0;
+    font-size: 11.5px;
+    color: #1a3a42;
+    line-height: 1.55;
+  }
+
+  .disclosure-box strong { color: var(--teal); }
+
+  .signature-block {
+    margin-top: 1.1rem;
+    padding-top: 0.9rem;
+    border-top: 2px solid var(--ink);
+  }
+
+  .signature-block h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.7rem;
+  }
+
+  .statement {
+    font-size: 11.5px;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .sig-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .sig-field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sig-line {
+    border-bottom: 1.5px solid var(--ink);
+    height: 1.4rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .sig-label {
+    font-size: 9.5px;
+    color: var(--ink-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+
+  .disclosure-form {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 0.85rem 1rem;
+    margin-top: 1rem;
+  }
+
+  .disclosure-form h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .form-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.55rem;
+    font-size: 11px;
+    flex-wrap: wrap;
+  }
+
+  .form-label {
+    font-weight: 500;
+    color: var(--ink);
+    flex-shrink: 0;
+  }
+
+  .form-line {
+    flex: 1;
+    border-bottom: 1px solid var(--ink-soft);
+    height: 1.1rem;
+    min-width: 100px;
+  }
+
+  .checkbox-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 11px;
+    margin-top: 0.15rem;
+  }
+
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .checkbox {
+    width: 12px;
+    height: 12px;
+    border: 1.5px solid var(--ink);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .doc-footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 0.55rem;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9.5px;
+    color: var(--ink-light);
+    letter-spacing: 0.02em;
+  }
+
+  .page-num { font-weight: 600; color: var(--teal); }
+
+  strong { color: var(--ink); }
+
+  @media print {
+    @page { size: letter; margin: 0; }
+    body { background: white; padding: 0; }
+    .page {
+      box-shadow: none;
+      margin: 0;
+      padding: 0.55in 0.65in;
+      page-break-after: always;
+      min-height: 11in;
+    }
+    .page:last-child { page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title">Cannabis use &amp; sedation</h1>
+      <div class="doc-subtitle">Informed Consent · Supplemental to Sedation Consent</div>
+    </div>
+    <div class="doc-meta">
+      Please read fully<br>
+      before signing
+    </div>
+  </header>
+
+  <p class="intro">
+    This form addresses the specific risks of using cannabis (marijuana, THC products, or related substances) before, during, or after IV sedation or general anesthesia. <strong>Because cannabis use can meaningfully affect how your body responds to sedation medications, we are required to review these risks with you and to document your understanding.</strong> Please read each section carefully and ask any questions before signing.
+  </p>
+
+  <section>
+    <h2><span class="sec-num">1</span>Scope &amp; disclosure</h2>
+    <p>This consent applies to cannabis in all forms, including:</p>
+    <ul style="list-style: disc; padding-left: 1.5rem; margin-bottom: 0.55rem;">
+      <li>Smoked or vaped cannabis (flower, concentrates, oils)</li>
+      <li>Oral products (edibles, capsules, tinctures, sublingual drops)</li>
+      <li>Topical products that are absorbed systemically</li>
+      <li>THC, CBD, and combined-cannabinoid products</li>
+      <li>Medical and recreational use</li>
+    </ul>
+    <div class="disclosure-box">
+      <strong>Honest disclosure is essential.</strong> The information you share about cannabis use is kept confidential within your medical record and is used only to plan your care safely. It does not affect your eligibility for treatment, and you will not be reported to any authority for disclosure.
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="sec-num">2</span>Risks of cannabis use around sedation</h2>
+    <p>By choosing to undergo sedation while using or having recently used cannabis, you acknowledge and accept the following increased risks:</p>
+
+    <ol class="risks">
+      <li>
+        <strong>Increased sedation medication requirements.</strong>
+        Chronic cannabis users typically require higher doses of sedatives, pain medications, and anesthetic agents to achieve and maintain adequate sedation. This can increase cardiovascular and respiratory side effects.
+      </li>
+      <li>
+        <strong>Increased airway reactivity and risk of laryngospasm.</strong>
+        Smoked or vaped cannabis — particularly within 24–72 hours of sedation — can irritate the airway and increase the risk of bronchospasm or laryngospasm (temporary closure of the vocal cords) during sedation. Laryngospasm can require urgent intervention and, in rare cases, emergency airway management.
+      </li>
+      <li>
+        <strong>Cardiovascular effects.</strong>
+        Cannabis can cause rapid heart rate, elevated or unstable blood pressure, and — rarely — cardiac rhythm disturbances. These effects can compound with sedation medications and complicate intraoperative management.
+      </li>
+      <li>
+        <strong>Delayed or unpredictable drug clearance.</strong>
+        Edibles and concentrated products produce metabolites that remain in the body significantly longer than smoked cannabis. Use within 24–48 hours — even of an edible from the previous evening — can affect your response to sedation.
+      </li>
+      <li>
+        <strong>Increased post-operative nausea, vomiting, and prolonged recovery.</strong>
+        Patients who use cannabis around the time of sedation have a higher incidence of nausea, vomiting, and delayed recovery from sedation.
+      </li>
+      <li>
+        <strong>Risk of cannabinoid hyperemesis.</strong>
+        Regular heavy cannabis users may experience severe, repeated vomiting after anesthesia that does not respond well to standard anti-nausea medications.
+      </li>
+      <li>
+        <strong>Postoperative healing.</strong>
+        Smoking or vaping cannabis after oral surgery increases the risk of dry socket, delayed soft-tissue healing, and — for implants and bone grafts — increased failure rates. These risks are present for nicotine and cannabis equally when smoked or vaped.
+      </li>
+      <li>
+        <strong>Possible procedure cancellation on the day of surgery.</strong>
+        If you arrive for a sedation appointment having recently used cannabis in a way that, in our clinical judgment, makes proceeding unsafe, we may reschedule your procedure. This is for your protection.
+      </li>
+    </ol>
+  </section>
+
+  <footer class="doc-footer">
+    <div>Cannabis &amp; Sedation — Informed Consent</div>
+    <div class="page-num">Page 1 of 2 · Continue on back</div>
+  </footer>
+</article>
+
+<!-- PAGE 2 -->
+<article class="page">
+
+  <header class="doc-header">
+    <div>
+      <h1 class="doc-title" style="font-size: 22px;">Acknowledgment &amp; disclosure</h1>
+      <div class="doc-subtitle">Cannabis &amp; Sedation Consent · continued</div>
+    </div>
+    <div class="doc-meta">Page 2 of 2</div>
+  </header>
+
+  <section>
+    <h2><span class="sec-num">3</span>Your responsibilities</h2>
+    <p>By signing this form, you agree to the following:</p>
+    <ol class="risks">
+      <li>
+        <strong>Accurate disclosure.</strong>
+        I will disclose truthfully the forms, frequency, amount, and timing of my cannabis use to my dental team before my procedure.
+      </li>
+      <li>
+        <strong>Abstinence requirement (office policy).</strong>
+        For elective IV sedation in our office, I will not use cannabis in any form — and will not smoke or vape anything — for <strong>at least 72 hours</strong> before my appointment, and will not use cannabis for <strong>at least 24 hours afterward</strong>. I understand this 72-hour window is the office's elective-sedation policy, chosen for airway and heart safety. Longer abstinence before the procedure may be recommended for heavy or daily users.
+      </li>
+      <li>
+        <strong>Day-of notification.</strong>
+        If I used cannabis in any form within 72 hours of my appointment — including edibles from the previous evening — I will notify the dental team before sedation is started.
+      </li>
+      <li>
+        <strong>Post-operative abstinence.</strong>
+        I understand that smoking or vaping cannabis after my procedure significantly increases the risk of dry socket and other healing complications, and that this is a modifiable risk I accept responsibility for.
+      </li>
+    </ol>
+  </section>
+
+  <div class="disclosure-form">
+    <h3>Cannabis use disclosure</h3>
+
+    <div class="form-row">
+      <span class="form-label">Do you use cannabis in any form?</span>
+      <div class="checkbox-row">
+        <div class="checkbox-item"><span class="checkbox"></span> No</div>
+        <div class="checkbox-item"><span class="checkbox"></span> Yes</div>
+        <div class="checkbox-item"><span class="checkbox"></span> Previously, but not now</div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <span class="form-label">Forms used:</span>
+      <div class="checkbox-row">
+        <div class="checkbox-item"><span class="checkbox"></span> Smoked</div>
+        <div class="checkbox-item"><span class="checkbox"></span> Vaped</div>
+        <div class="checkbox-item"><span class="checkbox"></span> Edibles</div>
+        <div class="checkbox-item"><span class="checkbox"></span> Tinctures/oils</div>
+        <div class="checkbox-item"><span class="checkbox"></span> Topical</div>
+        <div class="checkbox-item"><span class="checkbox"></span> Other</div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <span class="form-label">Frequency:</span>
+      <div class="checkbox-row">
+        <div class="checkbox-item"><span class="checkbox"></span> Daily</div>
+        <div class="checkbox-item"><span class="checkbox"></span> Several times/week</div>
+        <div class="checkbox-item"><span class="checkbox"></span> Weekly</div>
+        <div class="checkbox-item"><span class="checkbox"></span> Occasionally</div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <span class="form-label">Primarily:</span>
+      <div class="checkbox-row">
+        <div class="checkbox-item"><span class="checkbox"></span> THC products</div>
+        <div class="checkbox-item"><span class="checkbox"></span> CBD only</div>
+        <div class="checkbox-item"><span class="checkbox"></span> Both</div>
+        <div class="checkbox-item"><span class="checkbox"></span> Unsure</div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <span class="form-label">Date/time of most recent use:</span>
+      <div class="form-line"></div>
+    </div>
+
+    <div class="form-row">
+      <span class="form-label">Medical cannabis patient?</span>
+      <div class="checkbox-row">
+        <div class="checkbox-item"><span class="checkbox"></span> No</div>
+        <div class="checkbox-item"><span class="checkbox"></span> Yes</div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <span class="form-label">Additional notes:</span>
+      <div class="form-line"></div>
+    </div>
+  </div>
+
+  <div class="signature-block">
+    <h3>Patient acknowledgment &amp; signature</h3>
+    <p class="statement">
+      I have read and understood the information provided above regarding the risks of cannabis use around sedation. I have had the opportunity to ask questions, and my questions have been answered to my satisfaction. I have disclosed my cannabis use honestly in the section above. I understand that failure to disclose accurate information may result in an unsafe procedure and could be grounds for rescheduling or declining treatment. <strong>I voluntarily consent to proceed with sedation with this understanding.</strong>
+    </p>
+
+    <div class="sig-grid">
+      <div class="sig-field">
+        <div class="sig-line"></div>
+        <div class="sig-label">Patient signature</div>
+      </div>
+      <div class="sig-field">
+        <div class="sig-line"></div>
+        <div class="sig-label">Date</div>
+      </div>
+    </div>
+
+    <div class="sig-grid" style="margin-top: 0.9rem;">
+      <div class="sig-field">
+        <div class="sig-line"></div>
+        <div class="sig-label">Patient printed name</div>
+      </div>
+      <div class="sig-field">
+        <div class="sig-line"></div>
+        <div class="sig-label">Date of birth</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="doc-footer">
+    <div>Cannabis &amp; Sedation — Informed Consent</div>
+    <div class="page-num">Page 2 of 2 · Retain signed copy in patient chart</div>
+  </footer>
+</article>
+
+</body>
+</html>
